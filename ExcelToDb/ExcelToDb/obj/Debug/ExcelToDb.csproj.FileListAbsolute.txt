@@ -1,0 +1,42 @@
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.exe.config
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.exe
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.pdb
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FormMain.resources
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.Properties.Resources.resources
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csproj.GenerateResource.Cache
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\NPOI.dll
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\NPOI.OOXML.dll
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\NPOI.OpenXml4Net.dll
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\NPOI.OpenXmlFormats.dll
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\bin\Debug\NPOI.xml
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.Msg.resources
+E:\ASP·NET Projects\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csprojResolveAssemblyReference.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmAddAdmin.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmAddEmployee.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmAllot.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmLogin.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmMainConsole.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FormMain.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.Msg.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.Properties.Resources.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csproj.GenerateResource.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csproj.CoreCompileInputs.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csprojAssemblyReference.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.exe.config
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.exe
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\BLL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\CSkin.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\Models.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\Newtonsoft.Json.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\DAL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\BLL.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\Models.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\CSkin.xml
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\DAL.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csproj.CopyComplete
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb

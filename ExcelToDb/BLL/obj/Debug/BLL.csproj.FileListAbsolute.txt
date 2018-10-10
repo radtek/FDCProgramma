@@ -1,0 +1,11 @@
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\BLL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\BLL.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\DAL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\Models.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\DAL.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\Models.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.csproj.CopyComplete
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.pdb

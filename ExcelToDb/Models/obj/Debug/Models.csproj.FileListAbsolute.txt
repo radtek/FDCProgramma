@@ -1,0 +1,5 @@
+F:\MyPrograms\ExcelToDb\ExcelToDb\Models\bin\Debug\Models.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\Models\bin\Debug\Models.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\Models\obj\Debug\Models.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\Models\obj\Debug\Models.pdb

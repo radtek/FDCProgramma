@@ -1,0 +1,4 @@
+E:\ASP·NET Projects\ExcelToDb\MyNPOI\obj\Debug\MyNPOI.csprojResolveAssemblyReference.cache
+E:\ASP·NET Projects\ExcelToDb\MyNPOI\obj\Debug\MyNPOI.HSSF.Resource1.resources
+E:\ASP·NET Projects\ExcelToDb\MyNPOI\obj\Debug\MyNPOI.SS.Resource1.resources
+E:\ASP·NET Projects\ExcelToDb\MyNPOI\obj\Debug\MyNPOI.csproj.GenerateResource.Cache

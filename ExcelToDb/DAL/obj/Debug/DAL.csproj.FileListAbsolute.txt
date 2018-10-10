@@ -1,0 +1,9 @@
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\bin\Debug\DAL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\bin\Debug\DAL.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\bin\Debug\Models.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\bin\Debug\Models.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.csproj.CopyComplete
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.dll
+F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.pdb
