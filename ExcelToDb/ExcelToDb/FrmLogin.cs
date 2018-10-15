@@ -12,11 +12,14 @@ using ExcelToDb.MdoelsHelper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using CheckCode.Code;
+using BLL.User;
+using Models;
 
 namespace ExcelToDb
 {
     public partial class FrmLogin : Form
     {
+        B_User bu = new B_User();
         Log log = new Log(Application.StartupPath + "Log.txt");
         CheckCode.Code.CheckCode cc = new CheckCode.Code.CheckCode();
         //图形中的随机码
@@ -36,7 +39,7 @@ namespace ExcelToDb
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             string LoginCode = TbLoginCode.Text.Trim();
-            string LoginPass = TbLoginPass.Text.Trim();
+            string LoginPass = PubicHelp.MD5Encrypt(TbLoginPass.Text.Trim());
             string SignKey = TbSignKey.Text.Trim();
             string InputPicCode = TbPicCode.Text.ToUpper();
             //图形码验证
@@ -46,22 +49,31 @@ namespace ExcelToDb
                 return;
             }
             //获取数据库连接串和验证登录身份
-            string WebResult = new GetSQLconnectioncs(LoginCode, PubicHelp.MD5Encrypt(LoginPass), SignKey).WebGetConnection();
+            string WebResult = new GetSQLconnectioncs(LoginCode, LoginPass, SignKey).WebGetConnection();
             JObject RJson = JsonConvert.DeserializeObject<JObject>(WebResult);
             string RCode = (string)RJson["Code"];
             string SQLConnStr;
             if (RCode.Equals("00"))
             {
+                //获取登陆者的相关信息
+                AdminMsg SystemMsg = new AdminMsg();
+                SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
                 //连接串
                 SQLConnStr = HandleDesConn((string)RJson["SQLConn"]);
-                //获取登陆者的相关信息
-
-
-                   
-                /**/
+                SystemMsg.SqlConn = SQLConnStr;
+                /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的“{0}”,欢迎您！", "李先锋");
                 MessageBox.Show(WelcomeStr);
+                FrmMainConsole mainConsole = new FrmMainConsole(SystemMsg);
+                mainConsole.ShowDialog();
+
+                List<string> list = new List<string>();
+                list.Add("a");
+                list.Add("z");
+                list.Add("e");
+                list.Sort();
                 
+
             }
             else
             {

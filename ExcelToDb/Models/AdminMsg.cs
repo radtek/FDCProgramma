@@ -21,7 +21,7 @@ namespace Models
         /// <summary>
         /// 登录标识/验证字段
         /// </summary>
-        public string Token { get; set; }
+        public Token Token { get; set; }
         /// <summary>
         /// 登录人姓名
         /// </summary>

@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
 
 namespace ExcelToDb
 {
     public partial class FrmMainConsole : Form
     {
-        public FrmMainConsole()
+        /// <summary>
+        /// AdminMsg登录对象
+        /// </summary>
+        private AdminMsg SystemMsg = null;
+        public FrmMainConsole(AdminMsg msg)
         {
             InitializeComponent();
+            this.SystemMsg = msg;
+
         }
         private void FrmMainConsole_Load(object sender, EventArgs e)
         {

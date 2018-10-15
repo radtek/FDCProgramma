@@ -13,24 +13,6 @@ namespace BLL.User
     {
         DAL.User.D_User du = new DAL.User.D_User();
         /// <summary>
-        /// 验证登录用户身份
-        /// </summary>
-        /// <param name="LUserCode">登录名</param>
-        /// <param name="LUserPass">登录密码</param>
-        /// <returns></returns>
-        public bool VerificationLogin(string LUserCode,string LUserPass)
-        {
-            Models.User user =  du.Login(LUserCode);
-            if (user.UserPass != LUserPass || user.UserPass == "")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        /// <summary>
         /// 获取用户信息
         /// </summary>
         /// <param name="UserCode">账号</param>
@@ -42,6 +24,24 @@ namespace BLL.User
             return user;
         }
         /// <summary>
+        /// 获取AdminMsg对象信息信息
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="Pass"></param>
+        /// <returns></returns>
+        public Models.AdminMsg GetAdminMsg(string code,string Pass)
+        {
+            Models.User user = this.GetUserInfo(code, Pass);
+            AdminMsg msg = new AdminMsg();
+            msg.AdminGuid = user.UserGuid;
+            msg.AdminLoginCode = user.UserCode;
+            msg.AdminNickName = user.UserNickName;
+            msg.AdminSex = user.UserSex;
+            
+
+            return null;
+        }
+        /// <summary>
         /// 获取登录令牌Token
         /// </summary>
         /// <param name="UserGuid">用户GUID</param>
@@ -50,6 +50,7 @@ namespace BLL.User
         {
             //获取本机IP地址
             string UserIP = GetLocalIP();
+
             return null;
         }
         /// <summary>

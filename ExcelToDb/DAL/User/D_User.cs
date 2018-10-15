@@ -5,6 +5,7 @@ using System.Text;
 using PetaPoco;
 using Models;
 using System.Collections;
+using DAL.Public;
 
 namespace DAL.User
 {
@@ -14,19 +15,14 @@ namespace DAL.User
     public class D_User
     {
         /// <summary>
-        /// 根据账号查询用户所有信息
+        /// 传递过来的连接串
         /// </summary>
-        /// <param name="UserCode">账号</param>
-        /// <returns></returns>
-        public Models.User Login (string UserCode)
+        private string SystemSqlConn = "";
+        DBOperate operate;
+        public D_User(string SqlConn)
         {
-            Models.User MUser;
-            using (Database db = new PetaPoco.Database("DefaultConnection"))
-            {
-                MUser = db.SingleOrDefault<Models.User>(@"SELECT UserSex,UserNickName,UserGuid,UserPass 
-                    FROM Tb_User WHERE UserCode = @0 AND UserIsLocked = 0", UserCode);
-            }
-            return MUser;
+            this.SystemSqlConn = SqlConn;
+            operate = new DBOperate(SystemSqlConn);
         }
         /// <summary>
         /// 获取用户全部信息
@@ -40,7 +36,7 @@ namespace DAL.User
             using (Database db = new PetaPoco.Database("DefaultConnection"))
             {
                 MUser = db.SingleOrDefault<Models.User>(@"SELECT * 
-                    FROM Tb_User WHERE UserCode = @0 AND UserIsLocked = 0 AND UserPass = @1", UserCode,UserPass);
+                    FROM Tb_User WHERE UserCode = '@0' AND UserIsLocked = 0 AND UserPass = '@1'", UserCode,UserPass);
             }
             return MUser;
         }
@@ -53,10 +49,7 @@ namespace DAL.User
         {
             Token token;
             //1.新增或修改Token标识 2.更新最后登录时间和Token失效时间
-            using (Database db = new PetaPoco.Database("DefaultConnection"))
-            {
-
-            }
+            
             return null;
         }
 
