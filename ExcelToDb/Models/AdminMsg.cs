@@ -35,10 +35,6 @@ namespace Models
         /// </summary>
         public int AdminSex { get; set; }
         /// <summary>
-        /// Token失效时间
-        /// </summary>
-        public DateTime TokenFalseTime { get; set; }
-        /// <summary>
         /// 记录登录时间
         /// </summary>
         public DateTime LoginTime { get; set; }

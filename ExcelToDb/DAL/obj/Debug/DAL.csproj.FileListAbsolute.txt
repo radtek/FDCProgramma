@@ -7,3 +7,10 @@ F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\bin\Debug\Models.pdb
 F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.csproj.CopyComplete
 F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.dll
 F:\MyPrograms\ExcelToDb\ExcelToDb\DAL\obj\Debug\DAL.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\bin\Debug\DAL.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\bin\Debug\DAL.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\bin\Debug\Models.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\bin\Debug\Models.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\obj\Debug\DAL.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\DAL\obj\Debug\DAL.pdb

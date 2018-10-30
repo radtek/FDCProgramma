@@ -19,7 +19,7 @@ namespace ExcelToDb
 {
     public partial class FrmLogin : Form
     {
-        B_User bu = new B_User();
+        B_User bu;
         Log log = new Log(Application.StartupPath + "Log.txt");
         CheckCode.Code.CheckCode cc = new CheckCode.Code.CheckCode();
         //图形中的随机码
@@ -55,12 +55,15 @@ namespace ExcelToDb
             string SQLConnStr;
             if (RCode.Equals("00"))
             {
-                //获取登陆者的相关信息
                 AdminMsg SystemMsg = new AdminMsg();
-                SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
                 //连接串
                 SQLConnStr = HandleDesConn((string)RJson["SQLConn"]);
                 SystemMsg.SqlConn = SQLConnStr;
+                //连接串传递
+                bu = new B_User(SQLConnStr);
+                //获取登陆者的相关信息
+                SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
+                
                 /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的“{0}”,欢迎您！", "李先锋");
                 MessageBox.Show(WelcomeStr);

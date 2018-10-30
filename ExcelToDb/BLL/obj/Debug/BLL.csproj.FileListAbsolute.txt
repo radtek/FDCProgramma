@@ -9,3 +9,12 @@ F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\bin\Debug\Models.pdb
 F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.csproj.CopyComplete
 F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.dll
 F:\MyPrograms\ExcelToDb\ExcelToDb\BLL\obj\Debug\BLL.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\bin\Debug\BLL.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\bin\Debug\BLL.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\bin\Debug\DAL.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\bin\Debug\Models.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\bin\Debug\DAL.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\bin\Debug\Models.pdb
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\obj\Debug\BLL.dll
+D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\BLL\obj\Debug\BLL.pdb

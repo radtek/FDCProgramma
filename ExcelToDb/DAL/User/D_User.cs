@@ -6,6 +6,8 @@ using PetaPoco;
 using Models;
 using System.Collections;
 using DAL.Public;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace DAL.User
 {
@@ -33,7 +35,7 @@ namespace DAL.User
         public Models.User UserInfo(string UserCode,string UserPass)
         {
             Models.User MUser;
-            using (Database db = new PetaPoco.Database("DefaultConnection"))
+            using (Database db = new PetaPoco.Database(SystemSqlConn))
             {
                 MUser = db.SingleOrDefault<Models.User>(@"SELECT * 
                     FROM Tb_User WHERE UserCode = '@0' AND UserIsLocked = 0 AND UserPass = '@1'", UserCode,UserPass);
@@ -47,11 +49,33 @@ namespace DAL.User
         /// <returns></returns>
         public Token GetToken(string UserGuid,string UserIP)
         {
-            Token token;
+            Token token = new Token();
             //1.新增或修改Token标识 2.更新最后登录时间和Token失效时间
-            
-            return null;
+            string NewTokenCode = GetToken();
+            string ProcSql = string.Format(@"EXEC Proc_LoginToken '{0}','{1}','{2}'",UserGuid,UserIP,NewTokenCode);
+            DataSet ds = operate.ExecuteQuery(ProcSql);
+            token.TokenCode = (string)ds.Tables[0].Rows[0]["TokenCode"];
+            token.TokenLastDate = (DateTime)ds.Tables[0].Rows[0]["TokenLastDate"];
+            token.TokenFalseDate = (DateTime)ds.Tables[0].Rows[0]["TokenFalseDate"];
+            return token;
         }
+
+        public string GetToken()
+        {
+            string result;
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@len",SqlDbType.Int,1),
+                new SqlParameter("@token",SqlDbType.VarChar,6)
+            };
+            para[0].Value = 6;
+            para[1].Value = "";
+            para[1].Direction = ParameterDirection.Output;
+            operate.ExecuteStoredPro("Pro_Token", para, out result, 1);
+            return result;
+        }
+
+
 
     }
 }

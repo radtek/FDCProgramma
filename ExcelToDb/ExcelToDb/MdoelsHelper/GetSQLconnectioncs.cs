@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Configuration;
 
 namespace ExcelToDb.MdoelsHelper
 {
@@ -17,6 +18,7 @@ namespace ExcelToDb.MdoelsHelper
     /// </summary>
     public class GetSQLconnectioncs
     {
+        private string APIUrl = ConfigurationManager.AppSettings["APIAddress"];
         private string _Code = "";
         private string Code
         {
@@ -45,7 +47,7 @@ namespace ExcelToDb.MdoelsHelper
         {
             string Paramstr = string.Format(@"QueryType={0}&Code={1}&Sign={2}",
                 "GetConnection", Code, PubicHelp.DESEncrypt(Code + Md5Pass, SignKey));
-            string Url = "https:www.baidu.com";
+            string Url = APIUrl;
             string Result = WebPost(Url,Paramstr);
             return Result;
         }

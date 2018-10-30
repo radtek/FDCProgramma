@@ -14,6 +14,7 @@ namespace DAL.Public
     /// </summary>
     public sealed class DBOperate
     {
+
         /// <summary>
         /// 连接字符串
         /// </summary>
@@ -22,6 +23,71 @@ namespace DAL.Public
         {
             this.ConnString = ConnStr;
         }
+        /// <summary>
+        /// 执行存储过程返回单个值
+        /// </summary>
+        /// <param name="storeName">存储过程名称</param>
+        /// <param name="sqlparams">参数（设置要详细）</param>
+        /// <param name="result">返回结果集</param>
+        /// <param name="outaddress">返回参数所在的位置</param>
+        public void ExecuteStoredPro(string storeName,SqlParameter[] sqlparams, out string result,int outaddress)
+        {
+            using (SqlConnection conn = new SqlConnection(this.ConnString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = storeName;
+                    cmd.Parameters.AddRange(sqlparams);// 将参数加入命令对象  
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    result = Convert.ToString(cmd.Parameters[outaddress].Value);
+                }
+            }
+        }
+        /// <summary>
+        /// 执行存储过程返回结果集
+        /// </summary>
+        /// <param name="storeName">存储过程名</param>
+        /// <param name="sqlparams">参数（要设置详细包括名称、类型、长度、Input/OutPut/Inoutput）</param>
+        /// <param name="result">返回结果集</param>
+        /// <param name="outaddress">返回参数在sqlparams数组中的位置</param>
+        /// <param name="outnum">返回参数的个数</param>
+        public void ExecuteStoredPro(string storeName, SqlParameter[] sqlparams, out object[] result, int[] outaddress,int outnum)
+        {
+            object[] returnvalue = new object[outnum];
+            using (SqlConnection conn = new SqlConnection(this.ConnString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = storeName;
+                    /*                    SqlParameter[] para = {
+                        new SqlParameter("@len",SqlDbType.Int),
+                        new SqlParameter("@token",SqlDbType.VarChar,6)
+                    };
+
+                    para[0].Value = 6;
+                    para[1].Value = "";
+                    para[1].Direction = ParameterDirection.Output; //设定参数的输出方向  
+
+                    cmd.Parameters.AddRange(para);// 将参数加入命令对象 */
+                    cmd.Parameters.AddRange(sqlparams);// 将参数加入命令对象
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    for (int i = 0; i < outnum; i++)
+                    {
+                        returnvalue[i] = cmd.Parameters[outaddress[i]].Value;
+                    }
+                    result = returnvalue;
+                }
+            }
+        }
+
         /// <summary>
         /// 执行增删改
         /// </summary>
