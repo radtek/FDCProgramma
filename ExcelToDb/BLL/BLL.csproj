@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Distribute\SplitDataTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\B_Validate.cs" />
     <Compile Include="User\B_Admin.cs" />
@@ -46,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Achievements\" />
-    <Folder Include="Distribute\" />
     <Folder Include="Employee\" />
   </ItemGroup>
   <ItemGroup>

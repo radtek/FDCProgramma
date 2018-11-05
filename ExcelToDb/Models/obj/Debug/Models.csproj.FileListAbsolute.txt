@@ -8,3 +8,4 @@ D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\Models\bin\
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\Models\obj\Debug\Models.dll
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\Models\obj\Debug\Models.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\Models\obj\Debug\Models.csprojAssemblyReference.cache

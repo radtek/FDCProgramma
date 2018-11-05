@@ -62,3 +62,4 @@ D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\o
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.csproj.GenerateResource.Cache
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\Newtonsoft.Json.xml
