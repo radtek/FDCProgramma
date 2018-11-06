@@ -48,7 +48,7 @@ namespace BLL.User
             msg.Token = GetLoginToken(user.UserGuid, IP);
             msg.LoginTime = DateTime.Now;
             msg.LoginIP = IP;
-            return null;
+            return msg;
         }
         /// <summary>
         /// 获取登录令牌Token

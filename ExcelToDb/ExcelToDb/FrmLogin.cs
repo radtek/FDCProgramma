@@ -40,6 +40,7 @@ namespace ExcelToDb
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             string LoginCode = TbLoginCode.Text.Trim();
+            string YLoginPass = TbLoginPass.Text.Trim();
             string LoginPass = sh.MD5Encrypt(TbLoginPass.Text.Trim(),Encoding.UTF8).ToLower();
             string SignKey = TbSignKey.Text.Trim();
             string InputPicCode = TbPicCode.Text.ToUpper();
@@ -47,6 +48,9 @@ namespace ExcelToDb
             if (PicCode != InputPicCode)
             {
                 MessageBox.Show("图形验证码输入错误！请重新输入");
+                PicboxCode.Image = cc.BytesToImage(cc.RndCodeImg(4, 200, 65));
+                //图形中的随机码
+                PicCode = cc.ImgCode;
                 return;
             }
             //获取数据库连接串和验证登录身份
@@ -66,18 +70,12 @@ namespace ExcelToDb
                 SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
                 
                 /*友好的欢迎提示*/
-                string WelcomeStr = string.Format("亲爱的“{0}”,欢迎您！", "李先锋");
+                string WelcomeStr = string.Format("亲爱的'{0}',欢迎您登录！", SystemMsg.AdminNickName);
                 MessageBox.Show(WelcomeStr);
+                this.Hide();
                 FrmMainConsole mainConsole = new FrmMainConsole(SystemMsg);
                 mainConsole.ShowDialog();
-
-                List<string> list = new List<string>();
-                list.Add("a");
-                list.Add("z");
-                list.Add("e");
-                list.Sort();
-                
-
+                this.Close();
             }
             else
             {

@@ -35,12 +35,19 @@ namespace DAL.User
         public Models.User UserInfo(string UserCode,string UserPass)
         {
             Models.User MUser;
-            using (Database db = new PetaPoco.Database(SystemSqlConn))
+            using (SqlConnection sqlConnection = new SqlConnection(SystemSqlConn))
             {
-                MUser = db.SingleOrDefault<Models.User>(@"SELECT * 
-                    FROM Tb_User WHERE UserCode = '@0' AND UserIsLocked = 0 AND UserPass = '@1'", UserCode,UserPass);
+                sqlConnection.Open();
+                using (Database db = new PetaPoco.Database(sqlConnection))
+                {
+                    MUser = db.SingleOrDefault<Models.User>(@"
+                        SELECT * FROM Tb_User WHERE UserCode = @0
+                        AND ISNULL(UserIsLocked,0) = 0 
+                        AND UserPass = @1", UserCode, UserPass);
+                }
+                return MUser;
             }
-            return MUser;
+
         }
         /// <summary>
         /// 获取登录通行证Token
