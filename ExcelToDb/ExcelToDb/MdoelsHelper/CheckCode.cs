@@ -35,7 +35,7 @@ namespace CheckCode.Code
             {
                 using (Graphics gArea = Graphics.FromImage(bm))
                 {
-                    using (SolidBrush sBrush = new SolidBrush(Color.FromArgb(255, 0, 0)))
+                    using (SolidBrush sBrush = new SolidBrush(Color.FromArgb(141, 238, 238)))
                     {
                         gArea.FillRectangle(sBrush, 0, 0, bm.Width, bm.Height);
                         Font font = new Font(FontFamily.GenericSerif, 48, FontStyle.Bold, GraphicsUnit.Pixel);                        
@@ -46,7 +46,7 @@ namespace CheckCode.Code
                         for (int i = 0; i < intLength; i++)
                         {
                             string CurrChar = strLetters.Substring(RND.Next(0, strLetters.Length - 1), 1);
-                            gArea.DrawString(CurrChar, font, new SolidBrush(Color.Yellow), i * 38, RND.Next(0, 15));
+                            gArea.DrawString(CurrChar, font, new SolidBrush(Color.Black), i * 38, RND.Next(0, 15));
                             sBuilder.Append(CurrChar); //保存输出的字符。
                         }
                         //生成干扰线条                        
