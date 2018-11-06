@@ -6,13 +6,15 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace ExcelToDb.MdoelsHelper
+namespace GetSqlconn.Models
 {
     /// <summary>
     /// 安全助手
     /// </summary>
     public sealed class SecurityHelper
     {
+        //默认密钥向量--AES 
+        private static byte[] _key1 = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF, 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
         private  readonly byte[] IvBytes = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF };
 
         #region 通用加密算法
@@ -264,6 +266,68 @@ namespace ExcelToDb.MdoelsHelper
 
         #region 对称加密算法
 
+        #region AES加解密
+        /// <summary>
+        /// AES加密算法
+        /// </summary>
+        /// <param name="plainText">明文字符串</param>
+        /// <param name="strKey">密钥</param>
+        /// <returns>返回加密后的密文字节数组</returns>
+        public  string AESEncrypt(string plainText, string strKey)
+        {
+            //分组加密算法
+            SymmetricAlgorithm des = Rijndael.Create();
+            byte[] inputByteArray = Encoding.UTF8.GetBytes(plainText);//得到需要加密的字节数组
+            des.Mode = CipherMode.ECB;
+            des.Padding = PaddingMode.PKCS7;
+            //设置密钥及密钥向量
+            des.Key = Encoding.UTF8.GetBytes(strKey);
+            des.IV = _key1;
+            MemoryStream ms = new MemoryStream();
+            CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write);
+            cs.Write(inputByteArray, 0, inputByteArray.Length);
+            cs.FlushFinalBlock();
+            byte[] cipherBytes = ms.ToArray();//得到加密后的字节数组
+            cs.Close();
+            ms.Close();
+            //BitConverter.ToString(cipherBytes).Replace("-", "").ToLower()
+
+            return BitConverter.ToString(cipherBytes).Replace("-", "").ToLower();
+        }
+        public  byte[] ToHexByte(string hexString)
+        {
+            hexString = hexString.Replace(" ", "");
+            if ((hexString.Length % 2) != 0)
+                hexString += " ";
+            byte[] returnBytes = new byte[hexString.Length / 2];
+            for (int i = 0; i < returnBytes.Length; i++)
+                returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+            return returnBytes;
+        }
+        /// <summary>
+        /// AES解密
+        /// </summary>
+        /// <param name="cipherText">密文字节数组</param>
+        /// <param name="strKey">密钥</param>
+        /// <returns>返回解密后的字符串</returns>
+        public  string AESDecrypt(string input, string strKey)
+        {
+            byte[] cipherText = ToHexByte(input);
+            SymmetricAlgorithm des = Rijndael.Create();
+            des.Key = Encoding.UTF8.GetBytes(strKey);
+            des.Mode = CipherMode.ECB;
+            des.Padding = PaddingMode.PKCS7;
+            des.IV = _key1;
+            byte[] decryptBytes = new byte[cipherText.Length];
+            MemoryStream ms = new MemoryStream(cipherText);
+            CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Read);
+            cs.Read(decryptBytes, 0, decryptBytes.Length);
+            cs.Close();
+            ms.Close();
+            return Encoding.Default.GetString(decryptBytes);
+        }
+        #endregion
+
         #region Des 加解密
 
         /// <summary>
@@ -272,7 +336,7 @@ namespace ExcelToDb.MdoelsHelper
         /// <param name="input"> 待加密的字符串 </param>
         /// <param name="key"> 密钥（8位） </param>
         /// <returns></returns>
-        public  string DESEncrypt(string input, string key)
+        public string DESEncrypt(string input, string key)
         {
             try
             {

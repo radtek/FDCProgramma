@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using CheckCode.Code;
 using BLL.User;
 using Models;
+using GetSqlconn.Models;
 
 namespace ExcelToDb
 {
@@ -62,7 +63,7 @@ namespace ExcelToDb
             {
                 AdminMsg SystemMsg = new AdminMsg();
                 //连接串
-                SQLConnStr = (string)RJson["SQLConn"];
+                SQLConnStr = sh.AESDecrypt((string)RJson["SQLConn"],SignKey);
                 SystemMsg.SqlConn = SQLConnStr;
                 //连接串传递
                 bu = new B_User(SQLConnStr);

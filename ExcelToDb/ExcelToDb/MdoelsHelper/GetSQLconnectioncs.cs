@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
 using System.Net.Sockets;
+using GetSqlconn.Models;
 
 namespace ExcelToDb.MdoelsHelper
 {
