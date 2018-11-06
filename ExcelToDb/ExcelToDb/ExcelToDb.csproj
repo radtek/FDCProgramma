@@ -134,6 +134,7 @@
     <Compile Include="MdoelsHelper\GetSQLconnectioncs.cs" />
     <Compile Include="MdoelsHelper\Log.cs" />
     <Compile Include="MdoelsHelper\PubicHelp.cs" />
+    <Compile Include="MdoelsHelper\SecurityHelper.cs" />
     <Compile Include="Msg.cs">
       <SubType>Form</SubType>
     </Compile>

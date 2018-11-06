@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
+using System.Net.Sockets;
 
 namespace ExcelToDb.MdoelsHelper
 {
@@ -18,6 +19,7 @@ namespace ExcelToDb.MdoelsHelper
     /// </summary>
     public class GetSQLconnectioncs
     {
+        SecurityHelper sh = new SecurityHelper();
         private string APIUrl = ConfigurationManager.AppSettings["APIAddress"];
         private string _Code = "";
         private string Code
@@ -43,10 +45,33 @@ namespace ExcelToDb.MdoelsHelper
             this.Md5Pass = Md5Pass;
             this.SignKey = SignKey;
         }
+        public static string GetLocalIP()
+        {
+            try
+            {
+                string HostName = Dns.GetHostName(); //得到主机名
+                IPHostEntry IpEntry = Dns.GetHostEntry(HostName);
+                for (int i = 0; i < IpEntry.AddressList.Length; i++)
+                {
+                    //从IP地址列表中筛选出IPv4类型的IP地址
+                    //AddressFamily.InterNetwork表示此IP为IPv4,
+                    //AddressFamily.InterNetworkV6表示此地址为IPv6类型
+                    if (IpEntry.AddressList[i].AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        return IpEntry.AddressList[i].ToString();
+                    }
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string WebGetConnection()
         {
-            string Paramstr = string.Format(@"QueryType={0}&Code={1}&Sign={2}",
-                "GetConnection", Code, PubicHelp.DESEncrypt(Code + Md5Pass, SignKey));
+            string Paramstr = string.Format(@"QueryType={0}&Code={1}&Sign={2}&Time={3}&IP={4}",
+                "GetConnection", Code, sh.HMACSMD5Encrypt(Code + Md5Pass + DateTime.Now.ToString("yyyyMMdd"), SignKey,Encoding.UTF8).ToLower(),DateTime.Now.ToString(),GetLocalIP());
             string Url = APIUrl;
             string Result = WebPost(Url,Paramstr);
             return Result;
@@ -63,7 +88,7 @@ namespace ExcelToDb.MdoelsHelper
              * 声明浏览器支持的编码类型
              * 
              */
-            req.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+            req.ContentType = "application/x-www-form-urlencoded;";
             #region 添加Post 参数
             byte[] data = Encoding.UTF8.GetBytes(Paramsstr);
             req.ContentLength = data.Length;
@@ -76,7 +101,7 @@ namespace ExcelToDb.MdoelsHelper
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             Stream stream = resp.GetResponseStream();
             //获取响应内容
-            using (StreamReader reader = new StreamReader(stream, Encoding.Default))
+            using (StreamReader reader = new StreamReader(stream))
             {
                 result = reader.ReadToEnd();
             }

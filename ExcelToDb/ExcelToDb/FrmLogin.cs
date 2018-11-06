@@ -19,6 +19,7 @@ namespace ExcelToDb
 {
     public partial class FrmLogin : Form
     {
+        SecurityHelper sh = new SecurityHelper();
         B_User bu;
         Log log = new Log(Application.StartupPath + "Log.txt");
         CheckCode.Code.CheckCode cc = new CheckCode.Code.CheckCode();
@@ -39,7 +40,7 @@ namespace ExcelToDb
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             string LoginCode = TbLoginCode.Text.Trim();
-            string LoginPass = PubicHelp.MD5Encrypt(TbLoginPass.Text.Trim());
+            string LoginPass = sh.MD5Encrypt(TbLoginPass.Text.Trim(),Encoding.UTF8).ToLower();
             string SignKey = TbSignKey.Text.Trim();
             string InputPicCode = TbPicCode.Text.ToUpper();
             //图形码验证
@@ -57,7 +58,7 @@ namespace ExcelToDb
             {
                 AdminMsg SystemMsg = new AdminMsg();
                 //连接串
-                SQLConnStr = HandleDesConn((string)RJson["SQLConn"]);
+                SQLConnStr = (string)RJson["SQLConn"];
                 SystemMsg.SqlConn = SQLConnStr;
                 //连接串传递
                 bu = new B_User(SQLConnStr);
