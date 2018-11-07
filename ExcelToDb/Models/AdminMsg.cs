@@ -39,10 +39,6 @@ namespace Models
         /// </summary>
         public DateTime LoginTime { get; set; }
         /// <summary>
-        /// 手下员工数量
-        /// </summary>
-        public int EmployeeNum { get; set; }
-        /// <summary>
         /// 通过请求接口获取到的数据库连接串
         /// </summary>
         public string SqlConn { get; set; }

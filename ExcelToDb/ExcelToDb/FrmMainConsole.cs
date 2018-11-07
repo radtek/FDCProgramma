@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Models;
+using BLL.Public;
 
 namespace ExcelToDb
 {
     public partial class FrmMainConsole : Form
     {
+        B_Validate bv = new B_Validate();
         /// <summary>
         /// AdminMsg登录对象
         /// </summary>
@@ -21,15 +23,20 @@ namespace ExcelToDb
         {
             InitializeComponent();
             this.SystemMsg = msg;
-
         }
         private void FrmMainConsole_Load(object sender, EventArgs e)
         {
-            //设置系统显示时间
-            LbNowDate.Text = "系统时间 :" + DateTime.Now.ToString("f");
-
-
-
+            //验证登陆者身份
+            //如果不符要求，要重新登录
+            string Message = "";bool HasError = true; 
+            bv.ValidateCard(SystemMsg,ref Message,ref HasError);
+            if (HasError)
+            {
+                MessageBox.Show(Message, "安全提醒", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Hide();
+                FrmLogin login = new FrmLogin();
+                login.ShowDialog();
+            }
 
         }
     }

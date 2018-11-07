@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Models;
 using PetaPoco;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL.Public
 {
@@ -17,15 +19,24 @@ namespace DAL.Public
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public Token ValidateToken(AdminMsg msg)
+        public Token ValidateToken(string UserGuid, string ParamSqlConn)
         {
             Token token;
-            using (Database db = new PetaPoco.Database("DefaultConnection"))
+            using (SqlConnection sqlConnection = new SqlConnection(ParamSqlConn))
             {
-                token = db.SingleOrDefault<Token>(@"SELECT TokenCode,TokenLastDate,TokenFalseDate,UserGuid
-                                WHERE UserGuid = @0", msg.AdminGuid);
+                sqlConnection.Open();
+                using (Database db = new PetaPoco.Database(sqlConnection))
+                {
+                    token = db.SingleOrDefault<Token>(@"SELECT 
+                                                        TokenCode,
+                                                        TokenLastDate,
+                                                        TokenFalseDate,
+                                                        UserGuid 
+                                                        FROM Tb_Token 
+                                                        WHERE UserGuid = @0", UserGuid);
+                }
+                return token;
             }
-            return token;
         }
     }
 }

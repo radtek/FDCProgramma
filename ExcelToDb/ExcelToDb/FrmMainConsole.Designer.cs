@@ -48,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TbEmployeeCountNum = new System.Windows.Forms.TextBox();
             this.TbLiveEmployeeNum = new System.Windows.Forms.TextBox();
-            this.LbNowDate = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.GbEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployeeList)).BeginInit();
@@ -186,9 +185,9 @@
             this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(22, 580);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 19);
+            this.label2.Size = new System.Drawing.Size(142, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "当前操作人员总数：";
+            this.label2.Text = "当前员工总数：";
             // 
             // label3
             // 
@@ -218,22 +217,11 @@
             this.TbLiveEmployeeNum.TabIndex = 6;
             this.TbLiveEmployeeNum.Text = "10";
             // 
-            // LbNowDate
-            // 
-            this.LbNowDate.AutoSize = true;
-            this.LbNowDate.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LbNowDate.Location = new System.Drawing.Point(908, 585);
-            this.LbNowDate.Name = "LbNowDate";
-            this.LbNowDate.Size = new System.Drawing.Size(319, 20);
-            this.LbNowDate.TabIndex = 7;
-            this.LbNowDate.Text = "系统时间：2018年08月06日 08:55 ";
-            // 
             // FrmMainConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 621);
-            this.Controls.Add(this.LbNowDate);
             this.Controls.Add(this.TbLiveEmployeeNum);
             this.Controls.Add(this.TbEmployeeCountNum);
             this.Controls.Add(this.label3);
@@ -276,7 +264,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TbEmployeeCountNum;
         private System.Windows.Forms.TextBox TbLiveEmployeeNum;
-        private System.Windows.Forms.Label LbNowDate;
         private System.Windows.Forms.DataGridView DGVEmployeeList;
     }
 }

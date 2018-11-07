@@ -64,15 +64,14 @@ namespace ExcelToDb
                 AdminMsg SystemMsg = new AdminMsg();
                 //连接串
                 SQLConnStr = sh.AESDecrypt((string)RJson["SQLConn"],SignKey);
-                SystemMsg.SqlConn = SQLConnStr;
                 //连接串传递
                 bu = new B_User(SQLConnStr);
                 //获取登陆者的相关信息
                 SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
-                
+                SystemMsg.SqlConn = SQLConnStr;
                 /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的'{0}',欢迎您登录！", SystemMsg.AdminNickName);
-                MessageBox.Show(WelcomeStr);
+                MessageBox.Show(WelcomeStr,"温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Hide();
                 FrmMainConsole mainConsole = new FrmMainConsole(SystemMsg);
                 mainConsole.ShowDialog();
@@ -83,7 +82,7 @@ namespace ExcelToDb
                 string ExcptionStr = (string)RJson["Msg"];
                 /*错误日志记录*/
                 log.LogWrite("错误记录", ExcptionStr);
-                MessageBox.Show(ExcptionStr);
+                MessageBox.Show(ExcptionStr,"登录失败提示",MessageBoxButtons.OK,MessageBoxIcon.Stop);
             }
         }
         /// <summary>

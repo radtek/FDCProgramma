@@ -23,7 +23,7 @@ namespace Models
         /// </summary>
         public DateTime TokenLastDate { get; set; }
         /// <summary>
-        /// Token失效时间，有效时间1小时
+        /// Token失效时间，有效时间2小时
         /// </summary>
         public DateTime TokenFalseDate { get; set; }
     }
