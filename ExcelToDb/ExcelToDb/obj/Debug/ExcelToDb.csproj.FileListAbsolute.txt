@@ -63,3 +63,6 @@ D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\o
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
 D:\·NETProgramma\房地产信息管理系统\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb
 F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\Newtonsoft.Json.xml
+D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.exe.config
+D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
+D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb

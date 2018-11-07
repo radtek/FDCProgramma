@@ -101,5 +101,10 @@ namespace ExcelToDb
             //图形中的随机码
             PicCode = cc.ImgCode;
         }
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            //雷神PC-GitHub测试
+        }
     }
 }
