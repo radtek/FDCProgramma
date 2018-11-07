@@ -232,6 +232,7 @@
             this.ForeColor = System.Drawing.Color.Red;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMainConsole";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AF信息管理平台主控台";
             this.Load += new System.EventHandler(this.FrmMainConsole_Load);
             this.menuStrip1.ResumeLayout(false);

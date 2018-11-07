@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TbNickName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CbMan = new System.Windows.Forms.CheckBox();
-            this.CbWomen = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TbPhone = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.PicRandomCode = new System.Windows.Forms.PictureBox();
+            this.TbRandomCode = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.TbPass = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TbPhone = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CbWomen = new System.Windows.Forms.CheckBox();
+            this.CbMan = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TbNickName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnRegister = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TbRandomCode = new System.Windows.Forms.TextBox();
-            this.PicRandomCode = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicRandomCode)).BeginInit();
             this.SuspendLayout();
@@ -68,32 +68,77 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "注册信息";
             // 
-            // label1
+            // PicRandomCode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(24, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "姓名：";
+            this.PicRandomCode.Location = new System.Drawing.Point(29, 241);
+            this.PicRandomCode.Name = "PicRandomCode";
+            this.PicRandomCode.Size = new System.Drawing.Size(224, 75);
+            this.PicRandomCode.TabIndex = 11;
+            this.PicRandomCode.TabStop = false;
+            this.PicRandomCode.Click += new System.EventHandler(this.PicRandomCode_Click);
             // 
-            // TbNickName
+            // TbRandomCode
             // 
-            this.TbNickName.Location = new System.Drawing.Point(86, 44);
-            this.TbNickName.Name = "TbNickName";
-            this.TbNickName.Size = new System.Drawing.Size(167, 25);
-            this.TbNickName.TabIndex = 1;
+            this.TbRandomCode.Location = new System.Drawing.Point(138, 334);
+            this.TbRandomCode.Name = "TbRandomCode";
+            this.TbRandomCode.PasswordChar = '*';
+            this.TbRandomCode.Size = new System.Drawing.Size(115, 25);
+            this.TbRandomCode.TabIndex = 10;
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(24, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "性别：";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(24, 334);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "图形验证码：";
+            // 
+            // TbPass
+            // 
+            this.TbPass.Location = new System.Drawing.Point(86, 197);
+            this.TbPass.Name = "TbPass";
+            this.TbPass.PasswordChar = '*';
+            this.TbPass.Size = new System.Drawing.Size(167, 25);
+            this.TbPass.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(24, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 25);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "密码：";
+            // 
+            // TbPhone
+            // 
+            this.TbPhone.Location = new System.Drawing.Point(86, 142);
+            this.TbPhone.Name = "TbPhone";
+            this.TbPhone.Size = new System.Drawing.Size(167, 25);
+            this.TbPhone.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(24, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "手机：";
+            // 
+            // CbWomen
+            // 
+            this.CbWomen.AutoSize = true;
+            this.CbWomen.Location = new System.Drawing.Point(164, 97);
+            this.CbWomen.Name = "CbWomen";
+            this.CbWomen.Size = new System.Drawing.Size(44, 19);
+            this.CbWomen.TabIndex = 4;
+            this.CbWomen.Text = "女";
+            this.CbWomen.UseVisualStyleBackColor = true;
             // 
             // CbMan
             // 
@@ -107,50 +152,32 @@
             this.CbMan.Text = "男";
             this.CbMan.UseVisualStyleBackColor = true;
             // 
-            // CbWomen
+            // label2
             // 
-            this.CbWomen.AutoSize = true;
-            this.CbWomen.Location = new System.Drawing.Point(164, 97);
-            this.CbWomen.Name = "CbWomen";
-            this.CbWomen.Size = new System.Drawing.Size(44, 19);
-            this.CbWomen.TabIndex = 4;
-            this.CbWomen.Text = "女";
-            this.CbWomen.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(24, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "性别：";
             // 
-            // label3
+            // TbNickName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(24, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "手机：";
+            this.TbNickName.Location = new System.Drawing.Point(86, 44);
+            this.TbNickName.Name = "TbNickName";
+            this.TbNickName.Size = new System.Drawing.Size(167, 25);
+            this.TbNickName.TabIndex = 1;
             // 
-            // TbPhone
+            // label1
             // 
-            this.TbPhone.Location = new System.Drawing.Point(86, 142);
-            this.TbPhone.Name = "TbPhone";
-            this.TbPhone.Size = new System.Drawing.Size(167, 25);
-            this.TbPhone.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(24, 194);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 25);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "密码：";
-            // 
-            // TbPass
-            // 
-            this.TbPass.Location = new System.Drawing.Point(86, 197);
-            this.TbPass.Name = "TbPass";
-            this.TbPass.PasswordChar = '*';
-            this.TbPass.Size = new System.Drawing.Size(167, 25);
-            this.TbPass.TabIndex = 8;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(24, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "姓名：";
             // 
             // BtnRegister
             // 
@@ -171,33 +198,6 @@
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(24, 334);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "图形验证码：";
-            // 
-            // TbRandomCode
-            // 
-            this.TbRandomCode.Location = new System.Drawing.Point(138, 334);
-            this.TbRandomCode.Name = "TbRandomCode";
-            this.TbRandomCode.PasswordChar = '*';
-            this.TbRandomCode.Size = new System.Drawing.Size(115, 25);
-            this.TbRandomCode.TabIndex = 10;
-            // 
-            // PicRandomCode
-            // 
-            this.PicRandomCode.Location = new System.Drawing.Point(29, 241);
-            this.PicRandomCode.Name = "PicRandomCode";
-            this.PicRandomCode.Size = new System.Drawing.Size(224, 75);
-            this.PicRandomCode.TabIndex = 11;
-            this.PicRandomCode.TabStop = false;
-            this.PicRandomCode.Click += new System.EventHandler(this.PicRandomCode_Click);
-            // 
             // FrmAddAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -207,6 +207,7 @@
             this.Controls.Add(this.BtnRegister);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAddAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注册管理员";
             this.Load += new System.EventHandler(this.FrmAddAdmin_Load);
             this.groupBox1.ResumeLayout(false);
