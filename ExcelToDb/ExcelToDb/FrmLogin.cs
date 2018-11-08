@@ -48,10 +48,8 @@ namespace ExcelToDb
             //图形码验证
             if (PicCode != InputPicCode)
             {
-                MessageBox.Show("图形验证码输入错误！请重新输入");
-                PicboxCode.Image = cc.BytesToImage(cc.RndCodeImg(4, 200, 65));
-                //图形中的随机码
-                PicCode = cc.ImgCode;
+                MessageBox.Show("图形验证码输入错误！请重新输入","温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                RefrashImg();
                 return;
             }
             //获取数据库连接串和验证登录身份
@@ -83,6 +81,7 @@ namespace ExcelToDb
                 /*错误日志记录*/
                 log.LogWrite("错误记录", ExcptionStr);
                 MessageBox.Show(ExcptionStr,"登录失败提示",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                RefrashImg();
             }
         }
         /// <summary>
@@ -97,11 +96,17 @@ namespace ExcelToDb
 
         private void PicboxCode_Click(object sender, EventArgs e)
         {
+            RefrashImg();
+        }
+        /// <summary>
+        /// 刷新验证码
+        /// </summary>
+        private void RefrashImg()
+        {
             PicboxCode.Image = cc.BytesToImage(cc.RndCodeImg(4, 200, 65));
             //图形中的随机码
             PicCode = cc.ImgCode;
         }
-
         private void BtnQuit_Click(object sender, EventArgs e)
         {
             //雷神PC-GitHub测试
