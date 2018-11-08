@@ -38,7 +38,7 @@ namespace ExcelToDb
                 login.ShowDialog();
             }
             //查询员工列表，把下属员工全部陈列统计
-
+            DGVEmployeeList.DataSource = null;
         }
     }
 }
