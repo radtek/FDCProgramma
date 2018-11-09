@@ -46,5 +46,17 @@ namespace ExcelToDb
             DGVEmployeeList.DataSource = result;
             TbEmployeeCountNum.Text = result.Rows.Count.ToString();
         }
+
+        private void 新增操作人员ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddEmployee frmAddEmployee = new FrmAddEmployee(SystemMsg);
+            frmAddEmployee.ShowDialog();
+        }
+
+        private void DGVEmployeeList_Click(object sender, EventArgs e)
+        {
+            //点击数据表格，刷新数据源
+            DGVEmployeeList.DataSource = bEmployee.GetEmployeeGroup(SystemMsg.AdminGuid);
+        }
     }
 }

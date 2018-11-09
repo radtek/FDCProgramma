@@ -34,6 +34,31 @@ namespace DAL.Employee
         {
             return operate.ExecuteQuery(string.Format("Exec Proc_Employee_Total '{0}'", UserGuid)).Tables[0];
         }
-
+        /// <summary>
+        /// 返回新增结果
+        /// </summary>
+        /// <param name="EmployeeInfo"></param>
+        /// <returns></returns>
+        public int AddEmployee(Dictionary<string,object> EmployeeInfo)
+        {
+            return operate.ExecuteNonQuery(string.Format(@"Exec Proc_Add_Employee 
+                        '{0}',
+                        '{1}',
+                        '{2}',
+                        '{3}',
+                        '{4}',
+                        '{5}',
+                        '{6}',
+                        {7}",
+                        EmployeeInfo["GUID"],
+                        EmployeeInfo["Code"],
+                        EmployeeInfo["Tel"],
+                        EmployeeInfo["Pass"],
+                        EmployeeInfo["Name"],
+                        EmployeeInfo["Belong"],
+                        EmployeeInfo["Operator"],
+                        EmployeeInfo["Sex"]
+                        ));
+        }
     }
 }

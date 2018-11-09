@@ -43,6 +43,7 @@
     <Compile Include="Employee\BEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\B_Validate.cs" />
+    <Compile Include="Public\SecurityHelper.cs" />
     <Compile Include="User\B_Admin.cs" />
     <Compile Include="User\B_User.cs" />
   </ItemGroup>

@@ -88,25 +88,26 @@
             // excel导入ToolStripMenuItem
             // 
             this.excel导入ToolStripMenuItem.Name = "excel导入ToolStripMenuItem";
-            this.excel导入ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.excel导入ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.excel导入ToolStripMenuItem.Text = "Excel导入";
             // 
             // 新增操作人员ToolStripMenuItem
             // 
             this.新增操作人员ToolStripMenuItem.Name = "新增操作人员ToolStripMenuItem";
-            this.新增操作人员ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.新增操作人员ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.新增操作人员ToolStripMenuItem.Text = "新增操作人员";
+            this.新增操作人员ToolStripMenuItem.Click += new System.EventHandler(this.新增操作人员ToolStripMenuItem_Click);
             // 
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.修改密码ToolStripMenuItem.Text = "修改登录密码";
             // 
             // 历史操作统计ToolStripMenuItem
             // 
             this.历史操作统计ToolStripMenuItem.Name = "历史操作统计ToolStripMenuItem";
-            this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.历史操作统计ToolStripMenuItem.Text = "历史操作统计";
             // 
             // 员工效率ToolStripMenuItem
@@ -202,6 +203,7 @@
             this.DGVEmployeeList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGVEmployeeList.Size = new System.Drawing.Size(1212, 505);
             this.DGVEmployeeList.TabIndex = 0;
+            this.DGVEmployeeList.Click += new System.EventHandler(this.DGVEmployeeList_Click);
             // 
             // label2
             // 
