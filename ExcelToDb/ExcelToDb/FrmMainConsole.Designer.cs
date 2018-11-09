@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excel导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +49,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TbEmployeeCountNum = new System.Windows.Forms.TextBox();
             this.TbLiveEmployeeNum = new System.Windows.Forms.TextBox();
+            this.EmployeeGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeNickName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.GbEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployeeList)).BeginInit();
@@ -171,11 +179,27 @@
             // 
             // DGVEmployeeList
             // 
+            this.DGVEmployeeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVEmployeeList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.DGVEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVEmployeeList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EmployeeGuid,
+            this.EmployeeCode,
+            this.EmployeeTel,
+            this.EmployeeNickName,
+            this.EmployeeSex,
+            this.TelOperator,
+            this.EmployeeCreateDate});
             this.DGVEmployeeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVEmployeeList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DGVEmployeeList.Location = new System.Drawing.Point(3, 21);
             this.DGVEmployeeList.Name = "DGVEmployeeList";
+            this.DGVEmployeeList.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DGVEmployeeList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DGVEmployeeList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVEmployeeList.RowTemplate.Height = 27;
+            this.DGVEmployeeList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGVEmployeeList.Size = new System.Drawing.Size(1212, 505);
             this.DGVEmployeeList.TabIndex = 0;
             // 
@@ -216,6 +240,55 @@
             this.TbLiveEmployeeNum.Size = new System.Drawing.Size(100, 25);
             this.TbLiveEmployeeNum.TabIndex = 6;
             this.TbLiveEmployeeNum.Text = "10";
+            // 
+            // EmployeeGuid
+            // 
+            this.EmployeeGuid.DataPropertyName = "EmployeeGuid";
+            this.EmployeeGuid.HeaderText = "员工GUID";
+            this.EmployeeGuid.Name = "EmployeeGuid";
+            this.EmployeeGuid.Visible = false;
+            // 
+            // EmployeeCode
+            // 
+            this.EmployeeCode.DataPropertyName = "EmployeeCode";
+            this.EmployeeCode.HeaderText = "员工编号";
+            this.EmployeeCode.Name = "EmployeeCode";
+            this.EmployeeCode.ReadOnly = true;
+            // 
+            // EmployeeTel
+            // 
+            this.EmployeeTel.DataPropertyName = "EmployeeTel";
+            this.EmployeeTel.HeaderText = "员工电话";
+            this.EmployeeTel.Name = "EmployeeTel";
+            this.EmployeeTel.ReadOnly = true;
+            // 
+            // EmployeeNickName
+            // 
+            this.EmployeeNickName.DataPropertyName = "EmployeeNickName";
+            this.EmployeeNickName.HeaderText = "昵称";
+            this.EmployeeNickName.Name = "EmployeeNickName";
+            this.EmployeeNickName.ReadOnly = true;
+            // 
+            // EmployeeSex
+            // 
+            this.EmployeeSex.DataPropertyName = "EmployeeSex";
+            this.EmployeeSex.HeaderText = "性别";
+            this.EmployeeSex.Name = "EmployeeSex";
+            this.EmployeeSex.ReadOnly = true;
+            // 
+            // TelOperator
+            // 
+            this.TelOperator.DataPropertyName = "TelOperator";
+            this.TelOperator.HeaderText = "运营商";
+            this.TelOperator.Name = "TelOperator";
+            this.TelOperator.ReadOnly = true;
+            // 
+            // EmployeeCreateDate
+            // 
+            this.EmployeeCreateDate.DataPropertyName = "EmployeeCreateDate";
+            this.EmployeeCreateDate.HeaderText = "入职时间";
+            this.EmployeeCreateDate.Name = "EmployeeCreateDate";
+            this.EmployeeCreateDate.ReadOnly = true;
             // 
             // FrmMainConsole
             // 
@@ -266,5 +339,12 @@
         private System.Windows.Forms.TextBox TbEmployeeCountNum;
         private System.Windows.Forms.TextBox TbLiveEmployeeNum;
         private System.Windows.Forms.DataGridView DGVEmployeeList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeGuid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeNickName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TelOperator;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeCreateDate;
     }
 }

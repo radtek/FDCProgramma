@@ -6,6 +6,7 @@ using System.Text;
 using Models;
 using System.Data.SqlClient;
 using PetaPoco;
+using System.Data;
 
 namespace DAL.Employee
 {
@@ -29,16 +30,9 @@ namespace DAL.Employee
         /// </summary>
         /// <param name="UserGuid"></param>
         /// <returns></returns>
-        public MEmployee GetEmployeeList(string UserGuid)
+        public DataTable GetEmployeeTable(string UserGuid)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(SystemSqlConn))
-            {
-                sqlConnection.Open();
-                using (Database db = new PetaPoco.Database(sqlConnection))
-                {
-                    return db.SingleOrDefault<MEmployee>(@"Exec Proc_Employee_Total @0", UserGuid);
-                }
-            }
+            return operate.ExecuteQuery(string.Format("Exec Proc_Employee_Total '{0}'", UserGuid)).Tables[0];
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using DAL.Employee;
@@ -17,11 +18,9 @@ namespace BLL.Employee
         {
             dEmployee = new DEmployee(InputSqlConn);
         }
-        public MEmployee GetEmployeeGroup(string UserGuid)
+        public DataTable GetEmployeeGroup(string UserGuid)
         {
-            return dEmployee.GetEmployeeList(UserGuid);
+            return dEmployee.GetEmployeeTable(UserGuid);
         }
-
-
     }
 }

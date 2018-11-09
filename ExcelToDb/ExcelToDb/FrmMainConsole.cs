@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Models;
 using BLL.Public;
+using BLL.Employee;
 
 namespace ExcelToDb
 {
     public partial class FrmMainConsole : Form
     {
+        BEmployee bEmployee;
         B_Validate bv = new B_Validate();
         /// <summary>
         /// AdminMsg登录对象
@@ -23,7 +25,9 @@ namespace ExcelToDb
         {
             InitializeComponent();
             this.SystemMsg = msg;
+            bEmployee = new BEmployee(msg.SqlConn);
         }
+
         private void FrmMainConsole_Load(object sender, EventArgs e)
         {
             //验证登陆者身份
@@ -38,7 +42,9 @@ namespace ExcelToDb
                 login.ShowDialog();
             }
             //查询员工列表，把下属员工全部陈列统计
-            DGVEmployeeList.DataSource = null;
+            DataTable result = bEmployee.GetEmployeeGroup(SystemMsg.AdminGuid);
+            DGVEmployeeList.DataSource = result;
+            TbEmployeeCountNum.Text = result.Rows.Count.ToString();
         }
     }
 }

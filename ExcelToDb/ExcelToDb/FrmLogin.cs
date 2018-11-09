@@ -15,6 +15,7 @@ using CheckCode.Code;
 using BLL.User;
 using Models;
 using GetSqlconn.Models;
+using Models.Message;
 
 namespace ExcelToDb
 {
@@ -48,7 +49,7 @@ namespace ExcelToDb
             //图形码验证
             if (PicCode != InputPicCode)
             {
-                MessageBox.Show("图形验证码输入错误！请重新输入","温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Tips.TipsErrorBox("图形验证码输入错误！请重新输入");
                 RefrashImg();
                 return;
             }
@@ -69,7 +70,7 @@ namespace ExcelToDb
                 SystemMsg.SqlConn = SQLConnStr;
                 /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的'{0}',欢迎您登录！", SystemMsg.AdminNickName);
-                MessageBox.Show(WelcomeStr,"温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                Tips.TipsInfoBox(WelcomeStr);
                 this.Hide();
                 FrmMainConsole mainConsole = new FrmMainConsole(SystemMsg);
                 mainConsole.ShowDialog();
@@ -80,7 +81,7 @@ namespace ExcelToDb
                 string ExcptionStr = (string)RJson["Msg"];
                 /*错误日志记录*/
                 log.LogWrite("错误记录", ExcptionStr);
-                MessageBox.Show(ExcptionStr,"登录失败提示",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                Tips.TipsErrorBox(ExcptionStr);
                 RefrashImg();
             }
         }
@@ -109,7 +110,7 @@ namespace ExcelToDb
         }
         private void BtnQuit_Click(object sender, EventArgs e)
         {
-            //雷神PC-GitHub测试
+            this.Close();
         }
     }
 }

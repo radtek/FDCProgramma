@@ -11,6 +11,10 @@ namespace Models
     public class MEmployee
     {
         /// <summary>
+        /// 员工ID
+        /// </summary>
+        public int EmployeeID { get; set; }
+        /// <summary>
         /// 员工GUID
         /// </summary>
         public string EmployeeGuid { get; set; }
@@ -37,7 +41,7 @@ namespace Models
         /// <summary>
         /// 入职时间/注册时间
         /// </summary>
-        public DateTime CreateDate { get; set; }
+        public string CreateDate { get; set; }
         /// <summary>
         /// 历史记录
         /// </summary>
