@@ -84,6 +84,7 @@
             this.Cb_Man.TabIndex = 2;
             this.Cb_Man.Text = "先生";
             this.Cb_Man.UseVisualStyleBackColor = true;
+            this.Cb_Man.Click += new System.EventHandler(this.Cb_Man_Click);
             // 
             // label2
             // 
@@ -107,6 +108,7 @@
             this.Cb_Women.TabIndex = 4;
             this.Cb_Women.Text = "女士";
             this.Cb_Women.UseVisualStyleBackColor = true;
+            this.Cb_Women.Click += new System.EventHandler(this.Cb_Women_Click);
             // 
             // label3
             // 

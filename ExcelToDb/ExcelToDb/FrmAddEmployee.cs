@@ -86,5 +86,17 @@ namespace ExcelToDb
             //双击员工编号刷新编号
             Tb_EmlpoyeeCode.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
         }
+
+        private void Cb_Man_Click(object sender, EventArgs e)
+        {
+            Cb_Man.Checked = true;
+            Cb_Women.Checked = false;
+        }
+
+        private void Cb_Women_Click(object sender, EventArgs e)
+        {
+            Cb_Man.Checked = false;
+            Cb_Women.Checked = true;
+        }
     }
 }
