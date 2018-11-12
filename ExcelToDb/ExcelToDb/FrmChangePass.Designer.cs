@@ -178,6 +178,7 @@
             this.Controls.Add(this.BtnEnter);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmChangePass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "修改密码";
             this.Load += new System.EventHandler(this.FrmChangePass_Load);
             this.groupBox1.ResumeLayout(false);

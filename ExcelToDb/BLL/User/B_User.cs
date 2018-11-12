@@ -88,5 +88,9 @@ namespace BLL.User
                 return ex.Message;
             }
         }
+        public bool ChangePass()
+        {
+
+        }
     }
 }

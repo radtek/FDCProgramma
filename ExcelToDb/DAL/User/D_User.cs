@@ -81,7 +81,19 @@ namespace DAL.User
             operate.ExecuteStoredPro("Pro_Token", para, out result, 1);
             return result;
         }
+        /// <summary>
+        /// 修改登录密码
+        /// </summary>
+        /// <param name="UserGuid">用户guid</param>
+        /// <param name="YPass">原密码</param>
+        /// <param name="NPass">新密码</param>
+        /// <returns></returns>
 
+        public int ChangePass(string UserGuid, string YPass, string NPass)
+        {
+            string SQL = string.Format("Exec Proc_User_ChangePass '{0}','{1}','{2}'",UserGuid,YPass,NPass);
+            return operate.ExecuteNonQuery(SQL);
+        }
 
 
     }

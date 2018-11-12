@@ -73,7 +73,7 @@ namespace ExcelToDb
 
         private void BtnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void Cb_PassShow_Click(object sender, EventArgs e)
@@ -86,8 +86,20 @@ namespace ExcelToDb
             if (Cb_PassShow.Checked)
             {
                 Tb_NPass.UseSystemPasswordChar = false;
+                Tb_NPass.PasswordChar = new char();
                 Tb_YPass.UseSystemPasswordChar = false;
+                Tb_YPass.PasswordChar = new char();
                 Tb_EnterPass.UseSystemPasswordChar = false;
+                Tb_EnterPass.PasswordChar = new char();
+            }
+            else
+            {
+                Tb_NPass.UseSystemPasswordChar = true;
+                Tb_NPass.PasswordChar = '*';
+                Tb_YPass.UseSystemPasswordChar = true;
+                Tb_YPass.PasswordChar = '*';
+                Tb_EnterPass.UseSystemPasswordChar = true;
+                Tb_EnterPass.PasswordChar = '*';
             }
         }
     }
