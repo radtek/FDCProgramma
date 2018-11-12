@@ -91,6 +91,13 @@ namespace DAL.User
 
         public int ChangePass(string UserGuid, string YPass, string NPass,string Privatekey)
         {
+            //日志记录
+            string LogSql = string.Format("Exec Proc_Log '{0}','修改登录密码','{1}','{2}';",
+                UserGuid,
+                "YPass:" + YPass + ";NPass:" + NPass
+                ,DateTime.Now.ToString());
+            operate.ExecuteNonQuery(LogSql);
+            //修改密码
             string SQL = string.Format("Exec Proc_User_ChangePass '{0}','{1}','{2}','{3}'",UserGuid,YPass,NPass,Privatekey);
             return operate.ExecuteNonQuery(SQL);
         }
