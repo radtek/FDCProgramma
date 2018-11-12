@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excel导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,13 +42,9 @@
             this.任务分配ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动均分任务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自定义任务分发ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lb_Msg = new System.Windows.Forms.Label();
             this.GbEmployee = new System.Windows.Forms.GroupBox();
             this.DGVEmployeeList = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TbEmployeeCountNum = new System.Windows.Forms.TextBox();
-            this.TbLiveEmployeeNum = new System.Windows.Forms.TextBox();
             this.EmployeeGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmployeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmployeeTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +52,10 @@
             this.EmployeeSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmployeeCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TbEmployeeCountNum = new System.Windows.Forms.TextBox();
+            this.TbLiveEmployeeNum = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.GbEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployeeList)).BeginInit();
@@ -88,26 +88,26 @@
             // excel导入ToolStripMenuItem
             // 
             this.excel导入ToolStripMenuItem.Name = "excel导入ToolStripMenuItem";
-            this.excel导入ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.excel导入ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.excel导入ToolStripMenuItem.Text = "Excel导入";
             // 
             // 新增操作人员ToolStripMenuItem
             // 
             this.新增操作人员ToolStripMenuItem.Name = "新增操作人员ToolStripMenuItem";
-            this.新增操作人员ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.新增操作人员ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.新增操作人员ToolStripMenuItem.Text = "新增操作人员";
             this.新增操作人员ToolStripMenuItem.Click += new System.EventHandler(this.新增操作人员ToolStripMenuItem_Click);
             // 
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.修改密码ToolStripMenuItem.Text = "修改登录密码";
             // 
             // 历史操作统计ToolStripMenuItem
             // 
             this.历史操作统计ToolStripMenuItem.Name = "历史操作统计ToolStripMenuItem";
-            this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.历史操作统计ToolStripMenuItem.Text = "历史操作统计";
             // 
             // 员工效率ToolStripMenuItem
@@ -159,15 +159,15 @@
             this.自定义任务分发ToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.自定义任务分发ToolStripMenuItem.Text = "自定义任务分发";
             // 
-            // label1
+            // Lb_Msg
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(818, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(409, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "尊敬的：李先锋 先生/女士，欢迎您使用系统！";
+            this.Lb_Msg.AutoSize = true;
+            this.Lb_Msg.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Lb_Msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Lb_Msg.Location = new System.Drawing.Point(818, 2);
+            this.Lb_Msg.Name = "Lb_Msg";
+            this.Lb_Msg.Size = new System.Drawing.Size(0, 19);
+            this.Lb_Msg.TabIndex = 1;
             // 
             // GbEmployee
             // 
@@ -197,51 +197,13 @@
             this.DGVEmployeeList.Name = "DGVEmployeeList";
             this.DGVEmployeeList.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGVEmployeeList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.DGVEmployeeList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.DGVEmployeeList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGVEmployeeList.RowTemplate.Height = 27;
             this.DGVEmployeeList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGVEmployeeList.Size = new System.Drawing.Size(1212, 505);
             this.DGVEmployeeList.TabIndex = 0;
             this.DGVEmployeeList.Click += new System.EventHandler(this.DGVEmployeeList_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(22, 580);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "当前员工总数：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(336, 580);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "当前在线人数：";
-            // 
-            // TbEmployeeCountNum
-            // 
-            this.TbEmployeeCountNum.Location = new System.Drawing.Point(197, 579);
-            this.TbEmployeeCountNum.Name = "TbEmployeeCountNum";
-            this.TbEmployeeCountNum.ReadOnly = true;
-            this.TbEmployeeCountNum.Size = new System.Drawing.Size(100, 25);
-            this.TbEmployeeCountNum.TabIndex = 5;
-            this.TbEmployeeCountNum.Text = "15";
-            // 
-            // TbLiveEmployeeNum
-            // 
-            this.TbLiveEmployeeNum.Location = new System.Drawing.Point(484, 580);
-            this.TbLiveEmployeeNum.Name = "TbLiveEmployeeNum";
-            this.TbLiveEmployeeNum.ReadOnly = true;
-            this.TbLiveEmployeeNum.Size = new System.Drawing.Size(100, 25);
-            this.TbLiveEmployeeNum.TabIndex = 6;
-            this.TbLiveEmployeeNum.Text = "10";
             // 
             // EmployeeGuid
             // 
@@ -292,6 +254,44 @@
             this.EmployeeCreateDate.Name = "EmployeeCreateDate";
             this.EmployeeCreateDate.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(22, 580);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "当前员工总数：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(336, 580);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "当前在线人数：";
+            // 
+            // TbEmployeeCountNum
+            // 
+            this.TbEmployeeCountNum.Location = new System.Drawing.Point(197, 579);
+            this.TbEmployeeCountNum.Name = "TbEmployeeCountNum";
+            this.TbEmployeeCountNum.ReadOnly = true;
+            this.TbEmployeeCountNum.Size = new System.Drawing.Size(100, 25);
+            this.TbEmployeeCountNum.TabIndex = 5;
+            this.TbEmployeeCountNum.Text = "0";
+            // 
+            // TbLiveEmployeeNum
+            // 
+            this.TbLiveEmployeeNum.Location = new System.Drawing.Point(484, 580);
+            this.TbLiveEmployeeNum.Name = "TbLiveEmployeeNum";
+            this.TbLiveEmployeeNum.ReadOnly = true;
+            this.TbLiveEmployeeNum.Size = new System.Drawing.Size(100, 25);
+            this.TbLiveEmployeeNum.TabIndex = 6;
+            this.TbLiveEmployeeNum.Text = "0";
+            // 
             // FrmMainConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -302,7 +302,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.GbEmployee);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Lb_Msg);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.Red;
             this.MainMenuStrip = this.menuStrip1;
@@ -334,7 +334,7 @@
         private System.Windows.Forms.ToolStripMenuItem 任务分配ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动均分任务ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自定义任务分发ToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lb_Msg;
         private System.Windows.Forms.GroupBox GbEmployee;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

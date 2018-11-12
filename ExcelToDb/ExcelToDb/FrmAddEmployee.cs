@@ -29,9 +29,7 @@ namespace ExcelToDb
             Tb_EmlpoyeeCode.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
             Tb_CreateDate.Text = DateTime.Now.ToString("yyyy年MM月dd日 HH时mm分");
             Tb_BelongTo.Text = SystemMsg.AdminNickName;
-            //设置默认选中供应商
-            CbList_Operator.SetSelected(0, true);
-            CbList_Operator.SetItemChecked(0, true);
+
         }
         private void Btn_Add_Click(object sender, EventArgs e)
         {
@@ -40,8 +38,8 @@ namespace ExcelToDb
             string Pass = Tb_Passwords.Text;
             if (string.IsNullOrEmpty(Name) || 
                 string.IsNullOrEmpty(Tel) || 
-                string.IsNullOrEmpty(Pass) ||
-                CbList_Operator.SelectedItem == null
+                string.IsNullOrEmpty(Pass) 
+                
                 )
             {
                 Tips.TipsErrorBox("信息填入不完整，请再确认一下！");
@@ -56,7 +54,7 @@ namespace ExcelToDb
                 Params.Add("Pass",Pass);
                 Params.Add("Name",Name);
                 Params.Add("Belong",SystemMsg.AdminGuid);
-                Params.Add("Operator",CbList_Operator.SelectedItem.ToString());
+                Params.Add("Operator",GetRedioCheck());
                 Params.Add("Sex",GetEmployeeSex());
                 //执行存储操作
                 if (!be.AddEmployee(Params, ref ErrorMsg))
@@ -66,6 +64,10 @@ namespace ExcelToDb
                 else
                 {
                     Tips.TipsInfoBox("添加成功！");
+                    Tb_EmployeeName.Text = "";
+                    Tb_EmployeeTel.Text = "";
+                    Tb_Passwords.Text = "";
+                    Tb_EmlpoyeeCode.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                 }
             }
         }
@@ -97,6 +99,29 @@ namespace ExcelToDb
         {
             Cb_Man.Checked = false;
             Cb_Women.Checked = true;
+        }
+        public string GetRedioCheck()
+        {
+            if (Rb_YiDong.Checked)
+            {
+                return Rb_YiDong.Text;
+            }
+            if (Rb_DianXin.Checked)
+            {
+                return Rb_DianXin.Text;
+            }
+            if (Rb_LianTong.Checked)
+            {
+                return Rb_LianTong.Text;
+            }
+            if (Rb_Other.Checked)
+            {
+                return Rb_Other.Text;
+            }
+            else
+            {
+                return Rb_YiDong.Text;
+            }
         }
     }
 }

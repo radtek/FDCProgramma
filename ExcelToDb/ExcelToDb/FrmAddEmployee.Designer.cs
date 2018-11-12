@@ -37,7 +37,8 @@
             this.Tb_EmployeeTel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CbList_Operator = new System.Windows.Forms.CheckedListBox();
+            this.Tb_Passwords = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Tb_BelongTo = new System.Windows.Forms.TextBox();
@@ -46,8 +47,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Tb_EmlpoyeeCode = new System.Windows.Forms.TextBox();
             this.Btn_Add = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Tb_Passwords = new System.Windows.Forms.TextBox();
+            this.Rb_YiDong = new System.Windows.Forms.RadioButton();
+            this.Rb_LianTong = new System.Windows.Forms.RadioButton();
+            this.Rb_DianXin = new System.Windows.Forms.RadioButton();
+            this.Rb_Other = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +70,7 @@
             // 
             this.Tb_EmployeeName.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Tb_EmployeeName.Location = new System.Drawing.Point(109, 54);
+            this.Tb_EmployeeName.MaxLength = 10;
             this.Tb_EmployeeName.Name = "Tb_EmployeeName";
             this.Tb_EmployeeName.Size = new System.Drawing.Size(208, 31);
             this.Tb_EmployeeName.TabIndex = 1;
@@ -125,6 +129,7 @@
             // 
             this.Tb_EmployeeTel.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Tb_EmployeeTel.Location = new System.Drawing.Point(109, 102);
+            this.Tb_EmployeeTel.MaxLength = 11;
             this.Tb_EmployeeTel.Name = "Tb_EmployeeTel";
             this.Tb_EmployeeTel.Size = new System.Drawing.Size(208, 31);
             this.Tb_EmployeeTel.TabIndex = 6;
@@ -142,9 +147,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Rb_Other);
+            this.groupBox1.Controls.Add(this.Rb_DianXin);
+            this.groupBox1.Controls.Add(this.Rb_LianTong);
+            this.groupBox1.Controls.Add(this.Rb_YiDong);
             this.groupBox1.Controls.Add(this.Tb_Passwords);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.CbList_Operator);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Tb_EmployeeTel);
@@ -162,18 +170,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "需要自主填写信息";
             // 
-            // CbList_Operator
+            // Tb_Passwords
             // 
-            this.CbList_Operator.FormattingEnabled = true;
-            this.CbList_Operator.Items.AddRange(new object[] {
-            "中国移动",
-            "中国电信",
-            "中国联通",
-            "其他"});
-            this.CbList_Operator.Location = new System.Drawing.Point(36, 280);
-            this.CbList_Operator.Name = "CbList_Operator";
-            this.CbList_Operator.Size = new System.Drawing.Size(187, 120);
-            this.CbList_Operator.TabIndex = 8;
+            this.Tb_Passwords.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Tb_Passwords.Location = new System.Drawing.Point(109, 146);
+            this.Tb_Passwords.MaxLength = 16;
+            this.Tb_Passwords.Name = "Tb_Passwords";
+            this.Tb_Passwords.PasswordChar = '*';
+            this.Tb_Passwords.Size = new System.Drawing.Size(208, 31);
+            this.Tb_Passwords.TabIndex = 10;
+            this.Tb_Passwords.UseSystemPasswordChar = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(31, 151);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 27);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "密码：";
             // 
             // label5
             // 
@@ -268,24 +285,51 @@
             this.Btn_Add.UseVisualStyleBackColor = true;
             this.Btn_Add.Click += new System.EventHandler(this.Btn_Add_Click);
             // 
-            // label8
+            // Rb_YiDong
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(31, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 27);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "密码：";
+            this.Rb_YiDong.AutoSize = true;
+            this.Rb_YiDong.Checked = true;
+            this.Rb_YiDong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rb_YiDong.Location = new System.Drawing.Point(36, 282);
+            this.Rb_YiDong.Name = "Rb_YiDong";
+            this.Rb_YiDong.Size = new System.Drawing.Size(113, 31);
+            this.Rb_YiDong.TabIndex = 11;
+            this.Rb_YiDong.TabStop = true;
+            this.Rb_YiDong.Text = "中国移动";
+            this.Rb_YiDong.UseVisualStyleBackColor = true;
             // 
-            // Tb_Passwords
+            // Rb_LianTong
             // 
-            this.Tb_Passwords.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tb_Passwords.Location = new System.Drawing.Point(109, 146);
-            this.Tb_Passwords.Name = "Tb_Passwords";
-            this.Tb_Passwords.Size = new System.Drawing.Size(208, 31);
-            this.Tb_Passwords.TabIndex = 10;
+            this.Rb_LianTong.AutoSize = true;
+            this.Rb_LianTong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rb_LianTong.Location = new System.Drawing.Point(36, 319);
+            this.Rb_LianTong.Name = "Rb_LianTong";
+            this.Rb_LianTong.Size = new System.Drawing.Size(113, 31);
+            this.Rb_LianTong.TabIndex = 12;
+            this.Rb_LianTong.Text = "中国联通";
+            this.Rb_LianTong.UseVisualStyleBackColor = true;
+            // 
+            // Rb_DianXin
+            // 
+            this.Rb_DianXin.AutoSize = true;
+            this.Rb_DianXin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rb_DianXin.Location = new System.Drawing.Point(36, 356);
+            this.Rb_DianXin.Name = "Rb_DianXin";
+            this.Rb_DianXin.Size = new System.Drawing.Size(113, 31);
+            this.Rb_DianXin.TabIndex = 13;
+            this.Rb_DianXin.Text = "中国电信";
+            this.Rb_DianXin.UseVisualStyleBackColor = true;
+            // 
+            // Rb_Other
+            // 
+            this.Rb_Other.AutoSize = true;
+            this.Rb_Other.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rb_Other.Location = new System.Drawing.Point(36, 392);
+            this.Rb_Other.Name = "Rb_Other";
+            this.Rb_Other.Size = new System.Drawing.Size(73, 31);
+            this.Rb_Other.TabIndex = 14;
+            this.Rb_Other.Text = "其他";
+            this.Rb_Other.UseVisualStyleBackColor = true;
             // 
             // FrmAddEmployee
             // 
@@ -318,7 +362,6 @@
         private System.Windows.Forms.TextBox Tb_EmployeeTel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckedListBox CbList_Operator;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
@@ -329,5 +372,9 @@
         private System.Windows.Forms.Button Btn_Add;
         private System.Windows.Forms.TextBox Tb_Passwords;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton Rb_Other;
+        private System.Windows.Forms.RadioButton Rb_DianXin;
+        private System.Windows.Forms.RadioButton Rb_LianTong;
+        private System.Windows.Forms.RadioButton Rb_YiDong;
     }
 }
