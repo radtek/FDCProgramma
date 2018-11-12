@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excel导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,26 +88,27 @@
             // excel导入ToolStripMenuItem
             // 
             this.excel导入ToolStripMenuItem.Name = "excel导入ToolStripMenuItem";
-            this.excel导入ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.excel导入ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.excel导入ToolStripMenuItem.Text = "Excel导入";
             // 
             // 新增操作人员ToolStripMenuItem
             // 
             this.新增操作人员ToolStripMenuItem.Name = "新增操作人员ToolStripMenuItem";
-            this.新增操作人员ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.新增操作人员ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.新增操作人员ToolStripMenuItem.Text = "新增操作人员";
             this.新增操作人员ToolStripMenuItem.Click += new System.EventHandler(this.新增操作人员ToolStripMenuItem_Click);
             // 
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.修改密码ToolStripMenuItem.Text = "修改登录密码";
+            this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
             // 
             // 历史操作统计ToolStripMenuItem
             // 
             this.历史操作统计ToolStripMenuItem.Name = "历史操作统计ToolStripMenuItem";
-            this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.历史操作统计ToolStripMenuItem.Text = "历史操作统计";
             // 
             // 员工效率ToolStripMenuItem
@@ -197,8 +198,8 @@
             this.DGVEmployeeList.Name = "DGVEmployeeList";
             this.DGVEmployeeList.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGVEmployeeList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.DGVEmployeeList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DGVEmployeeList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVEmployeeList.RowTemplate.Height = 27;
             this.DGVEmployeeList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGVEmployeeList.Size = new System.Drawing.Size(1212, 505);

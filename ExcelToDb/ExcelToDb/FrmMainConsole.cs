@@ -71,5 +71,12 @@ namespace ExcelToDb
             DGVEmployeeList.DataSource = result;
             TbEmployeeCountNum.Text = result.Rows.Count.ToString();
         }
+
+        private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmChangePass changePass = new FrmChangePass(SystemMsg);
+            changePass.ShowDialog();
+            this.Hide();
+        }
     }
 }

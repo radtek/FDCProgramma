@@ -66,3 +66,4 @@ F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\bin\Debug\Newtonsoft.Json.xml
 D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\bin\Debug\ExcelToDb.exe.config
 D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
 D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmChangePass.resources

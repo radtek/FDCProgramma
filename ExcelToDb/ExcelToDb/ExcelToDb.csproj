@@ -109,6 +109,12 @@
     <Compile Include="FrmAllot.Designer.cs">
       <DependentUpon>FrmAllot.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePass.Designer.cs">
+      <DependentUpon>FrmChangePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAllot.resx">
       <DependentUpon>FrmAllot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePass.resx">
+      <DependentUpon>FrmChangePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
