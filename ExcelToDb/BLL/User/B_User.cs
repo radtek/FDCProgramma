@@ -90,7 +90,7 @@ namespace BLL.User
         }
         public bool ChangePass()
         {
-
+            return false;
         }
     }
 }
