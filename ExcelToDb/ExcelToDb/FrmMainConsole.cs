@@ -76,7 +76,6 @@ namespace ExcelToDb
         {
             FrmChangePass changePass = new FrmChangePass(SystemMsg);
             changePass.ShowDialog();
-            this.Hide();
         }
     }
 }

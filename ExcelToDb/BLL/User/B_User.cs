@@ -6,11 +6,13 @@ using Models;
 using DAL;
 using System.Net;
 using System.Net.Sockets;
+using BLL.Public;
 
 namespace BLL.User
 {
     public  class B_User
     {
+        private  SecurityHelper sh = new SecurityHelper();
         private string SqlConn = "";
         DAL.User.D_User du;
         public B_User(string conn)
@@ -88,9 +90,38 @@ namespace BLL.User
                 return ex.Message;
             }
         }
-        public bool ChangePass()
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="LoginGuid">GUID</param>
+        /// <param name="YPass">原密码</param>
+        /// <param name="NPass">新密码</param>
+        /// <param name="Privatekey">私钥</param>
+        /// <param name="HasError">是否存在问题</param>
+        /// <param name="Message">错误提示</param>
+        public void ChangePass(string LoginGuid,string YPass,string NPass,string Privatekey,ref bool HasError,ref string Message)
         {
-            return false;
+            try
+            {
+                //密码MD5处理
+                string B_YPass = sh.MD5Encrypt(YPass, Encoding.UTF8).ToLower();
+                string B_NPass = sh.MD5Encrypt(NPass, Encoding.UTF8).ToLower();
+                if (du.ChangePass(LoginGuid, B_YPass, B_NPass, Privatekey) != 1)
+                {
+                    HasError = false;
+                    throw new Exception("糟糕~~修改密码失败！");
+                }
+                else
+                {
+                    HasError = true;
+                    Message = "恭喜，修改密码成功！";
+                }
+            }
+            catch (Exception ex)
+            {
+                Message = ex.Message;
+                HasError = false;
+            }
         }
     }
 }

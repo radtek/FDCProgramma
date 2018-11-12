@@ -89,9 +89,9 @@ namespace DAL.User
         /// <param name="NPass">新密码</param>
         /// <returns></returns>
 
-        public int ChangePass(string UserGuid, string YPass, string NPass)
+        public int ChangePass(string UserGuid, string YPass, string NPass,string Privatekey)
         {
-            string SQL = string.Format("Exec Proc_User_ChangePass '{0}','{1}','{2}'",UserGuid,YPass,NPass);
+            string SQL = string.Format("Exec Proc_User_ChangePass '{0}','{1}','{2}','{3}'",UserGuid,YPass,NPass,Privatekey);
             return operate.ExecuteNonQuery(SQL);
         }
 

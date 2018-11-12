@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Cb_PassShow = new System.Windows.Forms.CheckBox();
             this.Tb_PrivateKey = new System.Windows.Forms.TextBox();
             this.Tb_EnterPass = new System.Windows.Forms.TextBox();
             this.Tb_NPass = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnEnter = new System.Windows.Forms.Button();
             this.BtnQuit = new System.Windows.Forms.Button();
-            this.Cb_PassShow = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,10 +61,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "信息确认";
             // 
+            // Cb_PassShow
+            // 
+            this.Cb_PassShow.AutoSize = true;
+            this.Cb_PassShow.Location = new System.Drawing.Point(59, 265);
+            this.Cb_PassShow.Name = "Cb_PassShow";
+            this.Cb_PassShow.Size = new System.Drawing.Size(89, 19);
+            this.Cb_PassShow.TabIndex = 18;
+            this.Cb_PassShow.Text = "密码可见";
+            this.Cb_PassShow.UseVisualStyleBackColor = true;
+            this.Cb_PassShow.CheckedChanged += new System.EventHandler(this.Cb_PassShow_CheckedChanged);
+            this.Cb_PassShow.Click += new System.EventHandler(this.Cb_PassShow_Click);
+            // 
             // Tb_PrivateKey
             // 
             this.Tb_PrivateKey.Location = new System.Drawing.Point(106, 216);
-            this.Tb_PrivateKey.MaxLength = 16;
+            this.Tb_PrivateKey.MaxLength = 32;
             this.Tb_PrivateKey.Name = "Tb_PrivateKey";
             this.Tb_PrivateKey.PasswordChar = '*';
             this.Tb_PrivateKey.Size = new System.Drawing.Size(230, 25);
@@ -156,18 +168,6 @@
             this.BtnQuit.Text = "取消";
             this.BtnQuit.UseVisualStyleBackColor = true;
             this.BtnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
-            // 
-            // Cb_PassShow
-            // 
-            this.Cb_PassShow.AutoSize = true;
-            this.Cb_PassShow.Location = new System.Drawing.Point(59, 265);
-            this.Cb_PassShow.Name = "Cb_PassShow";
-            this.Cb_PassShow.Size = new System.Drawing.Size(89, 19);
-            this.Cb_PassShow.TabIndex = 18;
-            this.Cb_PassShow.Text = "密码可见";
-            this.Cb_PassShow.UseVisualStyleBackColor = true;
-            this.Cb_PassShow.CheckedChanged += new System.EventHandler(this.Cb_PassShow_CheckedChanged);
-            this.Cb_PassShow.Click += new System.EventHandler(this.Cb_PassShow_Click);
             // 
             // FrmChangePass
             // 

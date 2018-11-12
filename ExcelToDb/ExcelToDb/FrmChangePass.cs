@@ -10,17 +10,20 @@ using System.Windows.Forms;
 using Models.Message;
 using Models;
 using BLL.Public;
+using BLL.User;
 
 namespace ExcelToDb
 {
     public partial class FrmChangePass : Form
     {
+        B_User bu;
         B_Validate bv = new B_Validate();
         private AdminMsg LoginInMsg = null;
         public FrmChangePass(AdminMsg LoginMsg)
         {
             InitializeComponent();
             LoginInMsg = LoginMsg;
+            bu = new B_User(LoginInMsg.SqlConn);
         }
         private void FrmChangePass_Load(object sender, EventArgs e)
         {
@@ -67,6 +70,19 @@ namespace ExcelToDb
                 else
                 {
                     //执行数据更改操作
+                    bool HasEror = false;
+                    string Message = "";
+                    bu.ChangePass(LoginInMsg.AdminGuid, YPass, NPass, PrivateKey,ref  HasEror, ref Message);
+                    if (!HasEror)
+                    {
+                        Tips.TipsErrorBox(Message);
+                        ClearBox();
+                    }
+                    else
+                    {
+                        Tips.TipsInfoBox("恭喜~密码修改成功！");
+                        ClearBox();
+                    }
                 }
             }
         }
@@ -75,7 +91,16 @@ namespace ExcelToDb
         {
             this.Hide();
         }
-
+        /// <summary>
+        /// 清空输入框
+        /// </summary>
+        public void ClearBox()
+        {
+            Tb_NPass.Text = "";
+            Tb_YPass.Text = "";
+            Tb_EnterPass.Text = "";
+            Tb_EnterPass.Text = "";
+        }
         private void Cb_PassShow_Click(object sender, EventArgs e)
         {
 
