@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using Models;
 using Models.Message;
 using BLL.Employee;
+using BLL.Public;
 
 namespace ExcelToDb
 {
     public partial class FrmAddEmployee : Form
     {
+        B_Validate bv = new B_Validate();
         BEmployee be;
         private AdminMsg SystemMsg = null;
         public FrmAddEmployee(AdminMsg LoginUser)
@@ -26,10 +28,27 @@ namespace ExcelToDb
         }
         private void FrmAddEmployee_Load(object sender, EventArgs e)
         {
+            try
+            {
+                //验证登陆者身份
+                //如果不符要求，要重新登录
+                string Message = ""; bool HasError = true;
+                bv.ValidateCard(SystemMsg, ref Message, ref HasError);
+                if (HasError)
+                {
+                    MessageBox.Show(Message, "安全提醒", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Hide();
+                    FrmLogin login = new FrmLogin();
+                    login.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                Tips.TipsInfoBox(ex.Message);
+            }
             Tb_EmlpoyeeCode.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
             Tb_CreateDate.Text = DateTime.Now.ToString("yyyy年MM月dd日 HH时mm分");
             Tb_BelongTo.Text = SystemMsg.AdminNickName;
-
         }
         private void Btn_Add_Click(object sender, EventArgs e)
         {
