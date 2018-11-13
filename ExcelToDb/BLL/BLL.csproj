@@ -42,6 +42,7 @@
     <Compile Include="Distribute\SplitDataTable.cs" />
     <Compile Include="Employee\BEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Public\BOperationRecord.cs" />
     <Compile Include="Public\B_Validate.cs" />
     <Compile Include="Public\SecurityHelper.cs" />
     <Compile Include="User\B_Admin.cs" />

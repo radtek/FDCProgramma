@@ -49,6 +49,7 @@
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\DBOperate.cs" />
+    <Compile Include="Public\DOperationRecord.cs" />
     <Compile Include="Public\D_Validate.cs" />
     <Compile Include="User\D_Admin.cs" />
     <Compile Include="User\D_User.cs" />

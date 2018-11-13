@@ -16,12 +16,14 @@ using BLL.User;
 using Models;
 using GetSqlconn.Models;
 using Models.Message;
+using BLL.Public;
 
 namespace ExcelToDb
 {
     public partial class FrmLogin : Form
     {
-        SecurityHelper sh = new SecurityHelper();
+        BOperationRecord BOperation;
+        BLL.Public.SecurityHelper sh = new BLL.Public.SecurityHelper();
         B_User bu;
         Log log = new Log(Application.StartupPath + "Log.txt");
         CheckCode.Code.CheckCode cc = new CheckCode.Code.CheckCode();
@@ -60,6 +62,7 @@ namespace ExcelToDb
             string SQLConnStr;
             if (RCode.Equals("00"))
             {
+                
                 AdminMsg SystemMsg = new AdminMsg();
                 //连接串
                 SQLConnStr = sh.AESDecrypt((string)RJson["SQLConn"],SignKey);
@@ -68,6 +71,9 @@ namespace ExcelToDb
                 //获取登陆者的相关信息
                 SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
                 SystemMsg.SqlConn = SQLConnStr;
+                //用户行为记录
+                BOperation = new BOperationRecord(SystemMsg.SqlConn);
+                BOperation.RecordHandle(SystemMsg.AdminGuid, BOperationRecord.Level.Daily, "登入系统");
                 /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的'{0}',欢迎您登录！", SystemMsg.AdminNickName);
                 Tips.TipsInfoBox(WelcomeStr);
