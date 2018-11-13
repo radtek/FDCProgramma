@@ -16,6 +16,7 @@ namespace ExcelToDb
 {
     public partial class FrmChangePass : Form
     {
+        BOperationRecord BOperation;
         B_User bu;
         B_Validate bv = new B_Validate();
         private AdminMsg LoginInMsg = null;
@@ -24,6 +25,7 @@ namespace ExcelToDb
             InitializeComponent();
             LoginInMsg = LoginMsg;
             bu = new B_User(LoginInMsg.SqlConn);
+            BOperation = new BOperationRecord(LoginInMsg.SqlConn);
         }
         private void FrmChangePass_Load(object sender, EventArgs e)
         {
@@ -69,6 +71,8 @@ namespace ExcelToDb
                 }
                 else
                 {
+                    //行为记录
+                    BOperation.RecordHandle(LoginInMsg.AdminGuid, BOperationRecord.Level.Sensitive, "修改密码", "Exec Proc_User_ChangePass");
                     //执行数据更改操作
                     bool HasEror = false;
                     string Message = "";

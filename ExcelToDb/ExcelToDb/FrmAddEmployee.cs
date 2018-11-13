@@ -16,6 +16,7 @@ namespace ExcelToDb
 {
     public partial class FrmAddEmployee : Form
     {
+        BOperationRecord BOperation;
         B_Validate bv = new B_Validate();
         BEmployee be;
         private AdminMsg SystemMsg = null;
@@ -24,7 +25,7 @@ namespace ExcelToDb
             be = new BEmployee(LoginUser.SqlConn);
             SystemMsg = LoginUser;
             InitializeComponent();
-            
+            BOperation = new BOperationRecord(LoginUser.SqlConn);
         }
         private void FrmAddEmployee_Load(object sender, EventArgs e)
         {
@@ -65,6 +66,7 @@ namespace ExcelToDb
             }
             else
             {
+                BOperation.RecordHandle(SystemMsg.AdminGuid, BOperationRecord.Level.Nomal, "新增员工");
                 string ErrorMsg = string.Empty;
                 Dictionary<string, object> Params = new Dictionary<string, object>();
                 Params.Add("GUID",Guid.NewGuid().ToString());
