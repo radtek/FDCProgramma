@@ -22,7 +22,6 @@ namespace ExcelToDb
 {
     public partial class FrmLogin : Form
     {
-        BOperationRecord BOperation;
         BLL.Public.SecurityHelper sh = new BLL.Public.SecurityHelper();
         B_User bu;
         Log log = new Log(Application.StartupPath + "Log.txt");
@@ -71,9 +70,6 @@ namespace ExcelToDb
                 //获取登陆者的相关信息
                 SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
                 SystemMsg.SqlConn = SQLConnStr;
-                //用户行为记录
-                BOperation = new BOperationRecord(SystemMsg.SqlConn);
-                BOperation.RecordHandle(SystemMsg.AdminGuid, BOperationRecord.Level.Daily, "登入系统");
                 /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的'{0}',欢迎您登录！", SystemMsg.AdminNickName);
                 Tips.TipsInfoBox(WelcomeStr);

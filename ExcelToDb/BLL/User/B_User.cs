@@ -12,6 +12,7 @@ namespace BLL.User
 {
     public  class B_User
     {
+        BOperationRecord BOperation;
         private  SecurityHelper sh = new SecurityHelper();
         private string SqlConn = "";
         DAL.User.D_User du;
@@ -50,6 +51,9 @@ namespace BLL.User
             msg.Token = GetLoginToken(user.UserGuid, IP);
             msg.LoginTime = DateTime.Now;
             msg.LoginIP = IP;
+            //用户行为记录
+            BOperation = new BOperationRecord(SqlConn);
+            BOperation.RecordHandle(user.UserGuid, BOperationRecord.Level.Daily, string.Format("登入系统，IP:{0}",IP));
             return msg;
         }
         /// <summary>
