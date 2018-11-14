@@ -77,5 +77,11 @@ namespace ExcelToDb
             FrmChangePass changePass = new FrmChangePass(SystemMsg);
             changePass.ShowDialog();
         }
+
+        private void 历史操作统计ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmOperationRecord frmOperationRecord = new FrmOperationRecord(SystemMsg);
+            frmOperationRecord.ShowDialog();
+        }
     }
 }

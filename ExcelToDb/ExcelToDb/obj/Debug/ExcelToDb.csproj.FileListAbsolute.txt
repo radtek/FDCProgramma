@@ -67,3 +67,4 @@ D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\bin\Debug\Ex
 D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.exe
 D:\·NETProgramma\MessageProgramma\FDCProgramma\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.pdb
 F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmChangePass.resources
+F:\MyPrograms\ExcelToDb\ExcelToDb\ExcelToDb\obj\Debug\ExcelToDb.FrmOperationRecord.resources

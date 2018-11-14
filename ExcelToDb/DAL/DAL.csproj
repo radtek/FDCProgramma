@@ -51,6 +51,7 @@
     <Compile Include="Public\DBOperate.cs" />
     <Compile Include="Public\DOperationRecord.cs" />
     <Compile Include="Public\D_Validate.cs" />
+    <Compile Include="Record\DRecord.cs" />
     <Compile Include="User\D_Admin.cs" />
     <Compile Include="User\D_User.cs" />
   </ItemGroup>

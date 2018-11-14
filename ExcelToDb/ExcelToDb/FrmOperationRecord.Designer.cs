@@ -48,6 +48,7 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(753, 436);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // R_Note
             // 
@@ -77,7 +78,9 @@
             this.ClientSize = new System.Drawing.Size(766, 460);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmOperationRecord";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "用户操作记录";
+            this.Load += new System.EventHandler(this.FrmOperationRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

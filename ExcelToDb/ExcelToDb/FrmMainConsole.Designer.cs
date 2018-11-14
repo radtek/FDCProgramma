@@ -110,6 +110,7 @@
             this.历史操作统计ToolStripMenuItem.Name = "历史操作统计ToolStripMenuItem";
             this.历史操作统计ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.历史操作统计ToolStripMenuItem.Text = "历史操作统计";
+            this.历史操作统计ToolStripMenuItem.Click += new System.EventHandler(this.历史操作统计ToolStripMenuItem_Click);
             // 
             // 员工效率ToolStripMenuItem
             // 
