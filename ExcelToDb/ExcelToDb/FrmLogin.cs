@@ -42,6 +42,7 @@ namespace ExcelToDb
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+
             string LoginCode = TbLoginCode.Text.Trim();
             string YLoginPass = TbLoginPass.Text.Trim();
             string LoginPass = sh.MD5Encrypt(TbLoginPass.Text.Trim(),Encoding.UTF8).ToLower();
@@ -54,6 +55,8 @@ namespace ExcelToDb
                 RefrashImg();
                 return;
             }
+            Msg msg = new Msg();
+            msg.Show();
             //获取数据库连接串和验证登录身份
             string WebResult = new GetSQLconnectioncs(LoginCode, LoginPass, SignKey).WebGetConnection();
             JObject RJson = JsonConvert.DeserializeObject<JObject>(WebResult);
@@ -70,6 +73,8 @@ namespace ExcelToDb
                 //获取登陆者的相关信息
                 SystemMsg = bu.GetAdminMsg(LoginCode, LoginPass);
                 SystemMsg.SqlConn = SQLConnStr;
+                //加载完成后隐藏加载中窗体
+                msg.Hide();
                 /*友好的欢迎提示*/
                 string WelcomeStr = string.Format("亲爱的'{0}',欢迎您登录！", SystemMsg.AdminNickName);
                 Tips.TipsInfoBox(WelcomeStr);
@@ -83,6 +88,7 @@ namespace ExcelToDb
                 string ExcptionStr = (string)RJson["Msg"];
                 /*错误日志记录*/
                 log.LogWrite("错误记录", ExcptionStr);
+                msg.Hide();
                 Tips.TipsErrorBox(ExcptionStr);
                 RefrashImg();
             }
