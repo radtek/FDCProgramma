@@ -244,6 +244,12 @@
     <Content Include="bin\Debug\NPOI.xml" />
     <Content Include="Img\Login.jpg" />
     <Content Include="Img\Login2.jpg" />
+    <Content Include="Loding动态图片\Loading1.gif" />
+    <Content Include="Loding动态图片\loading2.gif" />
+    <Content Include="Loding动态图片\loading3.gif" />
+    <Content Include="Loding动态图片\loading4.gif" />
+    <Content Include="Loding动态图片\loading5.gif" />
+    <Content Include="Loding动态图片\Loading6.gif" />
     <Content Include="obj\Debug\ExcelToDb.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ExcelToDb.exe" />
     <Content Include="obj\Debug\ExcelToDb.pdb" />
