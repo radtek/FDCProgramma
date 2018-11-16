@@ -60,5 +60,17 @@ namespace DAL.Employee
                         EmployeeInfo["Sex"]
                         ));
         }
+        /// <summary>
+        /// 统计员工数量
+        /// </summary>
+        /// <returns></returns>
+        public int GetEmployeeCount(string LoginGuid)
+        {
+            string SQL = string.Format(@"select COUNT(*) AS NUM 
+                                        from Tb_Employee where 
+                                        BelongToUser = '{0}' 
+                                        and ISNULL(EmployeeIsLocked,0) = 0 ",LoginGuid);
+           return Convert.ToInt32(operate.ExecuteQuery(SQL).Tables[0].Rows[0]["NUM"]); 
+        }
     }
 }

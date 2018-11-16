@@ -51,5 +51,14 @@ namespace BLL.Employee
                 return false;
             }
         }
+        /// <summary>
+        /// 返回手下可用员工数量
+        /// </summary>
+        /// <param name="LoginGuid"></param>
+        /// <returns></returns>
+        public int GetEmployNum(string LoginGuid)
+        {
+            return dEmployee.GetEmployeeCount(LoginGuid);
+        }
     }
 }

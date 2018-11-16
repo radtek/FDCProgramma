@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Distribute\DAllotHandle.cs" />
     <Compile Include="Employee\DEmployee.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
@@ -60,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Achievements\" />
-    <Folder Include="Distribute\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
