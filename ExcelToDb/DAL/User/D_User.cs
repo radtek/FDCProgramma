@@ -101,7 +101,5 @@ namespace DAL.User
             string SQL = string.Format("Exec Proc_User_ChangePass '{0}','{1}','{2}','{3}'",UserGuid,YPass,NPass,Privatekey);
             return operate.ExecuteNonQuery(SQL);
         }
-
-
     }
 }
