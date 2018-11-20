@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using DAL.Distribute;
+using DAL.Employee;
 using Models;
 
 namespace BLL.Distribute
@@ -13,12 +14,14 @@ namespace BLL.Distribute
     /// </summary>
     public  class BAllotHandle
     {
+        DEmployee DEmployee;
         DAllotHandle DAllotHandle;
         private AdminMsg LocalUser;
         public BAllotHandle(AdminMsg LoginMsg)
         {
             
             DAllotHandle = new DAllotHandle(LoginMsg.SqlConn);
+            DEmployee = new DEmployee(LoginMsg.SqlConn);
         }
         /*
          * 1.写一些自动处理的想法吧
@@ -26,7 +29,8 @@ namespace BLL.Distribute
          * 
          */
         private int TotalNum = 100000;
-        public int EmployeeCount = 6;
+        //员工数量
+        public int EmployeeCount = 0;
         //单人最大任务量
         private int MaxTaskNum = 50;
 
@@ -35,8 +39,13 @@ namespace BLL.Distribute
         /// <summary>
         /// 自动分配处理
         /// </summary>
-        public void AutoAllotHandle(int EmployeeCount)
+        public void AutoAllotHandle(int EmployeeCount,string UserGUID)
         {
+            //员工简要信息汇总
+            List<MEmployee> EmployListGroup = DEmployee.GetEmployeeList(UserGUID);
+            EmployeeCount = EmployListGroup.Count;
+
+
             int TableCount = MaxTaskNum * EmployeeCount;
             int SourceRowsCount = 0;
             /*按需查询DataTable操作*/
@@ -61,17 +70,16 @@ namespace BLL.Distribute
                 if (SourceRowsCount % EmployeeCount == 0)
                 {
                     SingleTask = SourceRowsCount / EmployeeCount;
-                    DataRowCollection TheRows = SourceTable.Rows;
+                    
                     for (int i = 0; i < EmployeeCount; i++)
                     {
                         //每次只取单人任务量的行进行操作
                         //var TheRows = (from DataRowCollection cc in SourceTable.Rows select cc).Skip(i*SingleTask).Take(SingleTask);
-                        DataRow[] LinqRows = TheRows.OfType<DataRow>().Skip(i * SingleTask).Take(SingleTask).ToArray();
+                        DataRow[] LinqRows = SourceTable.AsEnumerable().Skip(i * SingleTask).Take(SingleTask).ToArray();
                         foreach (DataRow item in LinqRows)
                         {
                             string Name = (string)item["Name"];
                         }
-
 
 
 

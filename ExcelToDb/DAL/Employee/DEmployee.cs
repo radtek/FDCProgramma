@@ -7,6 +7,7 @@ using Models;
 using System.Data.SqlClient;
 using PetaPoco;
 using System.Data;
+using Models;
 
 namespace DAL.Employee
 {
@@ -71,6 +72,32 @@ namespace DAL.Employee
                                         BelongToUser = '{0}' 
                                         and ISNULL(EmployeeIsLocked,0) = 0 ",LoginGuid);
            return Convert.ToInt32(operate.ExecuteQuery(SQL).Tables[0].Rows[0]["NUM"]); 
+        }
+        /// <summary>
+        /// 获取员工信息集合(简要信息)
+        /// 区别：这是简要的员工信息，用来做任务分配
+        /// </summary>
+        /// <param name="LoginGuid">登入者GUID</param>
+        /// <returns></returns>
+        public List<MEmployee> GetEmployeeList(string LoginGuid)
+        {
+            List<MEmployee> employees;
+            using (SqlConnection sqlConnection = new SqlConnection(SystemSqlConn))
+            {
+                sqlConnection.Open();
+                using (Database db = new PetaPoco.Database(sqlConnection))
+                {
+                    employees = db.SingleOrDefault<List<MEmployee>>(@"SELECT EmployeeGuid,
+                                EmployeeCode,
+                                EmployeeNickName,
+                                EmployeeSex,
+                                EmployeeTel,TelOperator
+                                FROM Tb_Employee
+                                 WHERE BelongToUser = '{0}' 
+                                AND EmployeeIsLocked = 0",LoginGuid);
+                }
+                return employees;
+            }
         }
     }
 }
