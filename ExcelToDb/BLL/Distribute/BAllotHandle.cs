@@ -6,6 +6,8 @@ using System.Text;
 using DAL.Distribute;
 using DAL.Employee;
 using Models;
+using BLL.Public;
+using DAL.Achievements;
 
 namespace BLL.Distribute
 {
@@ -14,6 +16,8 @@ namespace BLL.Distribute
     /// </summary>
     public  class BAllotHandle
     {
+        SerialNo serialNo = new SerialNo();
+        DEveryDayFinishiLog DEFLog;
         DEmployee DEmployee;
         DAllotHandle DAllotHandle;
         private AdminMsg LocalUser;
@@ -22,6 +26,7 @@ namespace BLL.Distribute
             
             DAllotHandle = new DAllotHandle(LoginMsg.SqlConn);
             DEmployee = new DEmployee(LoginMsg.SqlConn);
+            DEFLog = new DEveryDayFinishiLog(LoginMsg.SqlConn);
         }
         /*
          * 1.写一些自动处理的想法吧
@@ -31,8 +36,8 @@ namespace BLL.Distribute
         private int TotalNum = 100000;
         //员工数量
         public int EmployeeCount = 0;
-        //单人最大任务量
-        private int MaxTaskNum = 50;
+        //单人最大任务量--(自动分配时默认值50)
+        public int MaxTaskNum { get; set; } = 50;
 
 
 
@@ -76,15 +81,35 @@ namespace BLL.Distribute
                         //每次只取单人任务量的行进行操作
                         //var TheRows = (from DataRowCollection cc in SourceTable.Rows select cc).Skip(i*SingleTask).Take(SingleTask);
                         DataRow[] LinqRows = SourceTable.AsEnumerable().Skip(i * SingleTask).Take(SingleTask).ToArray();
+
+
+
+                        //当前分配员工的GUID
+                        string BillNo = serialNo.CreateSerialNo();
+                        string EGuid = EmployListGroup[i].EmployeeGuid;
+                        string ENickName = EmployListGroup[i].EmployeeNickName;
+                        bool MianResullt = false;
+                        string ExpotionMsg = "";
+                        //存入主表
+                        DAllotHandle.AddTaskMain(BillNo, EGuid, SingleTask, ENickName, ref MianResullt, ref ExpotionMsg);
+                        if (!MianResullt)
+                        {
+                            //日志记录
+
+                            return;
+                        }
+                        //字表写入
+                        int Sort = 0;
                         foreach (DataRow item in LinqRows)
                         {
+                            Sort++;
                             string Name = (string)item["Name"];
+                            string Tel = (string)item["Tel"];
+                            string Company = (string)item["Company"];
+                            DAllotHandle.AddTaskSub(BillNo, Name, Tel, Sort, Company);
                         }
-
-
-
-
-
+                        //每日任务绩效表记录插入/更新
+                        DEFLog.TaskAchievementsLog(BillNo, EGuid, SingleTask);
                     }
                     List<DataRow> TaskRows = new List<DataRow>(SingleTask);
                 }

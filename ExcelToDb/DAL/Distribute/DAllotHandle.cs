@@ -48,5 +48,51 @@ namespace DAL.Distribute
                 return null;
             }
         }
+        /// <summary>
+        /// 增加任务主表记录
+        /// </summary>
+        /// <param name="BillNo">流水号</param>
+        /// <param name="Guid">GUID</param>
+        /// <param name="Count">数量</param>
+        /// <param name="Name">姓名</param>
+        /// <param name="IsOK">结果</param>
+        /// <param name="Msg">信息</param>
+        public void AddTaskMain(string BillNo,string Guid,int Count,string Name,ref bool IsOK,ref string Msg)
+        {
+            try
+            {
+                string TmSql = string.Format(@"Exec Proc_TaskMain_Add '{0}','{1}',{2},'{3}'", BillNo, Guid, Count, Name);
+                if (operate.ExecuteNonQuery(TmSql) > 0)
+                {
+                    IsOK = true;
+                    Msg = "";
+                } 
+            }
+            catch (Exception ex)
+            {
+                IsOK = false;
+                Msg = ex.Message;
+            }
+        }
+        /// <summary>
+        /// 增加任务字表记录
+        /// </summary>
+        /// <param name="ET_No">流水号</param>
+        /// <param name="Name">名称</param>
+        /// <param name="Tel">电话</param>
+        /// <param name="Sort">排序</param>
+        /// <param name="Company">运营商</param>
+        public void AddTaskSub(string ET_No,string Name,string Tel,int Sort,string Company)
+        {
+            string SQL = string.Format(@"INSERT INTO Tb_EmployeeTaskSub (ET_No,C_Name,C_Tel,ET_Sort,ET_Company) 
+                                VALUES ('{0}','{1}','{2}',{3},'{4}'))",
+                                            ET_No,
+                                            Name,
+                                            Tel,
+                                            Sort,
+                                            Company
+                                            );
+            operate.ExecuteNonQuery(SQL);
+        }
     }
 }
