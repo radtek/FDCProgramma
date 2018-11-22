@@ -95,8 +95,8 @@ namespace BLL.Distribute
                         if (!MianResullt)
                         {
                             //日志记录
-
-                            return;
+                            throw new Exception(ExpotionMsg);
+                            //下面代码不再执行
                         }
                         //字表写入
                         int Sort = 0;
@@ -115,10 +115,23 @@ namespace BLL.Distribute
                 }
                 /*
                  * 剔除多余的数据再进行拆分的2中情况
-                 * 1.数据量太少不够一次分配的
+                 * 
+                 * 1.数据量太少不够一次分配的 --不做任何处理
+                 * 
                  * 2.数据量够分配数次还有剩余
                  */
+                else
+                {
+                    //2.数据量够分配数次还有剩余
+                    decimal r = SourceRowsCount / EmployeeCount;
+                    if (Math.Round(r,3) > 1)
+                    {
 
+
+
+
+                    }
+                }
 
 
 
