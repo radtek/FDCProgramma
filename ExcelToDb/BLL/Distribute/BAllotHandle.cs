@@ -28,14 +28,6 @@ namespace BLL.Distribute
             DEmployee = new DEmployee(LoginMsg.SqlConn);
             DEFLog = new DEveryDayFinishiLog(LoginMsg.SqlConn);
         }
-        /*
-         * 1.写一些自动处理的想法吧
-         * 
-         * 
-         */
-        private int TotalNum = 100000;
-        //员工数量
-        public int EmployeeCount = 0;
         //单人最大任务量--(自动分配时默认值50)
         public int MaxTaskNum { get; set; } = 50;
 
@@ -48,9 +40,11 @@ namespace BLL.Distribute
         {
             //员工简要信息汇总
             List<MEmployee> EmployListGroup = DEmployee.GetEmployeeList(UserGUID);
-            EmployeeCount = EmployListGroup.Count;
-
-
+            //验证一下，看看员工数量是否统一，避免索引超出数组界限
+            if (EmployeeCount != EmployListGroup.Count)
+            {
+                EmployeeCount = EmployListGroup.Count;
+            }
             int TableCount = MaxTaskNum * EmployeeCount;
             int SourceRowsCount = 0;
             /*按需查询DataTable操作*/
@@ -117,9 +111,11 @@ namespace BLL.Distribute
         /// <summary>
         /// 手动分配处理
         /// </summary>
-        public void AllotHandle()
+        public void AllotHandle(int InputTaskNum, int EmployeeCount, string UserGUID)
         {
             //手动分配就是重新设置一下最大任务量
+            MaxTaskNum = InputTaskNum;
+            AutoAllotHandle(EmployeeCount, UserGUID);
         }
     }
 }
