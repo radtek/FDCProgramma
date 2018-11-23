@@ -31,12 +31,13 @@ namespace DAL.Distribute
         public DataTable GetAutoTable(int NeedNum,string LoginGuid,ref int RowsCount)
         {
             string SQL = string.Format(@"SELECT TOP({0}) CF_NickName AS Name,
+                                        CF_ID AS ID,
                                         CF_Tel AS Tel,
                                         CF_BelongOperator AS Company 
                                         FROM Tb_CustomInformation 
                                         WHERE CF_IsUsed = 0 AND 
                                         CF_UserGuid = '{1}' 
-                                        ORDER BY CF_CreateDate DESC;",NeedNum,LoginGuid);
+                                        ORDER BY CF_CreateDate DESC;", NeedNum,LoginGuid);
             DataSet Result = operate.ExecuteQuery(SQL);
             if (Result.Tables.Count > 0)
             {
@@ -82,15 +83,15 @@ namespace DAL.Distribute
         /// <param name="Tel">电话</param>
         /// <param name="Sort">排序</param>
         /// <param name="Company">运营商</param>
-        public void AddTaskSub(string ET_No,string Name,string Tel,int Sort,string Company)
+        public void AddTaskSub(string ET_No,string Name,string Tel,int Sort,string Company,int Customer_ID)
         {
-            string SQL = string.Format(@"INSERT INTO Tb_EmployeeTaskSub (ET_No,C_Name,C_Tel,ET_Sort,ET_Company) 
-                                VALUES ('{0}','{1}','{2}',{3},'{4}'))",
+            string SQL = string.Format(@"Exec Proc_TaskSub_Add '{0}','{1}','{2}',{3},'{4}',{5}",
                                             ET_No,
                                             Name,
                                             Tel,
                                             Sort,
-                                            Company
+                                            Company,
+                                            Customer_ID
                                             );
             operate.ExecuteNonQuery(SQL);
         }

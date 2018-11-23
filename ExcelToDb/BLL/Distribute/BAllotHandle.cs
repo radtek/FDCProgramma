@@ -60,22 +60,21 @@ namespace BLL.Distribute
              * 处理逻辑？
              * 1.先判断数据剩余量能不能平分到每个人相同的量
              * 2.剩余的不作处理，只处理满足平分条件的
-             * 3. 
+             * 原则是：
+             * 只处理在最大处理量内的任务
              */
-            if (SourceRowsCount < TableCount)
+            if (SourceRowsCount <= TableCount)
             {
                 /*
                  * Linq使用博客地址：https://blog.csdn.net/zlbcdn/article/details/79192485
                  */
                 //单人任务量
                 int SingleTask;
-                /*
-                 * 正好整除，不用再剔除剩余的
-                 */
-                if (SourceRowsCount % EmployeeCount == 0)
+                decimal r = SourceRowsCount / EmployeeCount;
+                //2.数据量够分配一次或者数次
+                if (Math.Round(r, 3) >= 1)
                 {
                     SingleTask = SourceRowsCount / EmployeeCount;
-                    
                     for (int i = 0; i < EmployeeCount; i++)
                     {
                         //每次只取单人任务量的行进行操作
@@ -103,58 +102,24 @@ namespace BLL.Distribute
                         foreach (DataRow item in LinqRows)
                         {
                             Sort++;
+                            int ID = (int)item["ID"];
                             string Name = (string)item["Name"];
                             string Tel = (string)item["Tel"];
                             string Company = (string)item["Company"];
-                            DAllotHandle.AddTaskSub(BillNo, Name, Tel, Sort, Company);
+                            DAllotHandle.AddTaskSub(BillNo, Name, Tel, Sort, Company,ID);
                         }
                         //每日任务绩效表记录插入/更新
                         DEFLog.TaskAchievementsLog(BillNo, EGuid, SingleTask);
                     }
-                    List<DataRow> TaskRows = new List<DataRow>(SingleTask);
                 }
-                /*
-                 * 剔除多余的数据再进行拆分的2中情况
-                 * 
-                 * 1.数据量太少不够一次分配的 --不做任何处理
-                 * 
-                 * 2.数据量够分配数次还有剩余
-                 */
-                else
-                {
-                    //2.数据量够分配数次还有剩余
-                    decimal r = SourceRowsCount / EmployeeCount;
-                    if (Math.Round(r,3) > 1)
-                    {
-
-
-
-
-                    }
-                }
-
-
-
-
-
             }
-            /*
-             * 2种情况
-             * 1.当数据剩余量等于需要的数据量时
-             * 2.当剩余数据量远远大于需要的数据量时
-             */
-            else
-            {
-
-            }
-
         }
         /// <summary>
         /// 手动分配处理
         /// </summary>
         public void AllotHandle()
         {
-
+            //手动分配就是重新设置一下最大任务量
         }
     }
 }
