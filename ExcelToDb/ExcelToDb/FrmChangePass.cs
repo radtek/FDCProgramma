@@ -11,6 +11,7 @@ using Models.Message;
 using Models;
 using BLL.Public;
 using BLL.User;
+using ExcelToDb.MdoelsHelper;
 
 namespace ExcelToDb
 {
@@ -19,6 +20,7 @@ namespace ExcelToDb
         BOperationRecord BOperation;
         B_User bu;
         B_Validate bv = new B_Validate();
+        Log log;
         private AdminMsg LoginInMsg = null;
         public FrmChangePass(AdminMsg LoginMsg)
         {
@@ -26,6 +28,7 @@ namespace ExcelToDb
             LoginInMsg = LoginMsg;
             bu = new B_User(LoginInMsg.SqlConn);
             BOperation = new BOperationRecord(LoginInMsg.SqlConn);
+            log = new Log(PublicValues.LogFilePath);
         }
         private void FrmChangePass_Load(object sender, EventArgs e)
         {
@@ -86,6 +89,8 @@ namespace ExcelToDb
                     {
                         Tips.TipsInfoBox("恭喜~密码修改成功！");
                         ClearBox();
+                        //"账号：" + LoginCode + "--" +
+                        log.LogWrite("行为记录", "账号：" + LoginInMsg.AdminLoginCode + "--" + "修改密码！");
                     }
                 }
             }

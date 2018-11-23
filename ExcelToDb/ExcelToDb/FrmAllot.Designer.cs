@@ -207,7 +207,7 @@
             this.Tb_AutoAllotNum.ReadOnly = true;
             this.Tb_AutoAllotNum.Size = new System.Drawing.Size(100, 31);
             this.Tb_AutoAllotNum.TabIndex = 13;
-            this.Tb_AutoAllotNum.Text = "100";
+            this.Tb_AutoAllotNum.Text = "50";
             // 
             // label4
             // 
@@ -266,6 +266,7 @@
             this.BtnAutoAllotHandle.TabIndex = 8;
             this.BtnAutoAllotHandle.Text = "开始分配";
             this.BtnAutoAllotHandle.UseVisualStyleBackColor = true;
+            this.BtnAutoAllotHandle.Click += new System.EventHandler(this.BtnAutoAllotHandle_Click);
             // 
             // skinLine1
             // 

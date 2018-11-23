@@ -11,11 +11,13 @@ using Models;
 using Models.Message;
 using BLL.Employee;
 using BLL.Public;
+using ExcelToDb.MdoelsHelper;
 
 namespace ExcelToDb
 {
     public partial class FrmAddEmployee : Form
     {
+        Log log;
         BOperationRecord BOperation;
         B_Validate bv = new B_Validate();
         BEmployee be;
@@ -26,6 +28,7 @@ namespace ExcelToDb
             SystemMsg = LoginUser;
             InitializeComponent();
             BOperation = new BOperationRecord(LoginUser.SqlConn);
+            log = new Log(PublicValues.LogFilePath);
         }
         private void FrmAddEmployee_Load(object sender, EventArgs e)
         {
@@ -89,6 +92,8 @@ namespace ExcelToDb
                     Tb_EmployeeTel.Text = "";
                     Tb_Passwords.Text = "";
                     Tb_EmlpoyeeCode.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    //"账号：" + LoginCode + "--" +
+                    log.LogWrite("行为记录", "账号：" + SystemMsg.AdminLoginCode + "--" + "增加员工！");
                 }
             }
         }

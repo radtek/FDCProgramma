@@ -24,13 +24,14 @@ namespace ExcelToDb
     {
         BLL.Public.SecurityHelper sh = new BLL.Public.SecurityHelper();
         B_User bu;
-        Log log = new Log(Application.StartupPath + "Log.txt");
+        Log log;
         CheckCode.Code.CheckCode cc = new CheckCode.Code.CheckCode();
         //图形中的随机码
         private string PicCode;
         public FrmLogin()
         {
             InitializeComponent();
+            log = new Log(PublicValues.LogFilePath);
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -87,7 +88,7 @@ namespace ExcelToDb
             {
                 string ExcptionStr = (string)RJson["Msg"];
                 /*错误日志记录*/
-                log.LogWrite("错误记录", ExcptionStr);
+                log.LogWrite("错误记录","账号：" + LoginCode + "--" + ExcptionStr);
                 msg.Hide();
                 Tips.TipsErrorBox(ExcptionStr);
                 RefrashImg();

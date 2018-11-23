@@ -23,7 +23,7 @@ namespace BLL.Distribute
         private AdminMsg LocalUser;
         public BAllotHandle(AdminMsg LoginMsg)
         {
-            
+            LocalUser = LoginMsg;
             DAllotHandle = new DAllotHandle(LoginMsg.SqlConn);
             DEmployee = new DEmployee(LoginMsg.SqlConn);
             DEFLog = new DEveryDayFinishiLog(LoginMsg.SqlConn);

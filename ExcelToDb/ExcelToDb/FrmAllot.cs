@@ -11,16 +11,21 @@ using BLL.Employee;
 using Models;
 using Models.Message;
 using BLL.Public;
-    
+using BLL.Distribute;
+using ExcelToDb.MdoelsHelper;
 
 namespace ExcelToDb
 {
     public partial class FrmAllot : Form
     {
+        
         BOperationRecord BOperation;
         B_Validate bv = new B_Validate();
         BEmployee be;
+        int EmployNum;
+        BAllotHandle BAllotHandle;
         private AdminMsg LoginMsg = null;
+        Log log;
         public FrmAllot(AdminMsg LoginUser)
         {
             InitializeComponent();
@@ -28,6 +33,8 @@ namespace ExcelToDb
             LoginMsg = LoginUser;
             InitializeComponent();
             BOperation = new BOperationRecord(LoginUser.SqlConn);
+            BAllotHandle = new BAllotHandle(LoginUser);
+            log = new Log(PublicValues.LogFilePath);
         }
 
         private void FrmAllot_Load(object sender, EventArgs e)
@@ -50,9 +57,22 @@ namespace ExcelToDb
             {
                 Tips.TipsInfoBox(ex.Message);
             }
-            string ENum = be.GetEmployNum(LoginMsg.AdminGuid).ToString();
-            Tb_EmployeeNum2.Text = ENum;
-            Tb_EmployeeNum1.Text = ENum;
+            EmployNum = be.GetEmployNum(LoginMsg.AdminGuid);
+            Tb_EmployeeNum2.Text = EmployNum.ToString();
+            Tb_EmployeeNum1.Text = EmployNum.ToString();
+        }
+
+        private void BtnAutoAllotHandle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BAllotHandle.AutoAllotHandle(EmployNum, LoginMsg.AdminGuid);
+            }
+            catch (Exception ex)
+            {
+                //日志记录
+            }
+            
         }
     }
 }
