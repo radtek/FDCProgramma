@@ -8,6 +8,7 @@ using DAL.Employee;
 using Models;
 using BLL.Public;
 using DAL.Achievements;
+using System.Threading;
 
 namespace BLL.Distribute
 {
@@ -28,11 +29,34 @@ namespace BLL.Distribute
             DEmployee = new DEmployee(LoginMsg.SqlConn);
             DEFLog = new DEveryDayFinishiLog(LoginMsg.SqlConn);
         }
+        /*
+         * 任务量大于5万时，开启线程
+         * 1.怎么实现？
+         * 2.开辟几个？
+         */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //单人最大任务量--(自动分配时默认值50)
         public int MaxTaskNum { get; set; } = 50;
-
-
-
         /// <summary>
         /// 自动分配处理
         /// </summary>

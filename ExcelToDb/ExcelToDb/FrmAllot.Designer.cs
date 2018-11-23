@@ -120,6 +120,7 @@
             this.BtnHandle.TabIndex = 7;
             this.BtnHandle.Text = "开始分配";
             this.BtnHandle.UseVisualStyleBackColor = true;
+            this.BtnHandle.Click += new System.EventHandler(this.BtnHandle_Click);
             // 
             // Cb_Handle
             // 

@@ -66,13 +66,31 @@ namespace ExcelToDb
         {
             try
             {
+                BAllotHandle.MaxTaskNum = 50;
                 BAllotHandle.AutoAllotHandle(EmployNum, LoginMsg.AdminGuid);
             }
             catch (Exception ex)
             {
                 //日志记录
+                Tips.TipsErrorBox(ex.Message);
+                log.LogWrite("行为记录","账号：" + LoginMsg.AdminLoginCode + "--执行自动均分任务！");
             }
             
+        }
+
+        private void BtnHandle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BAllotHandle.MaxTaskNum = Convert.ToInt32(Tb_InputNum.Text == "" ?"0": Tb_InputNum.Text);
+                BAllotHandle.AutoAllotHandle(EmployNum, LoginMsg.AdminGuid);
+            }
+            catch (Exception ex)
+            {
+                //日志记录
+                Tips.TipsErrorBox(ex.Message);
+                log.LogWrite("行为记录", "账号：" + LoginMsg.AdminLoginCode + "--执行手动均分任务！" + "单人日任务量：" + BAllotHandle.MaxTaskNum);
+            }
         }
     }
 }
