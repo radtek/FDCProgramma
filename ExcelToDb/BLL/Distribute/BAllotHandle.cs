@@ -29,31 +29,6 @@ namespace BLL.Distribute
             DEmployee = new DEmployee(LoginMsg.SqlConn);
             DEFLog = new DEveryDayFinishiLog(LoginMsg.SqlConn);
         }
-        /*
-         * 任务量大于5万时，开启线程
-         * 1.怎么实现？
-         * 2.开辟几个？
-         */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         //单人最大任务量--(自动分配时默认值50)
         public int MaxTaskNum { get; set; } = 50;
@@ -73,6 +48,25 @@ namespace BLL.Distribute
             int SourceRowsCount = 0;
             /*按需查询DataTable操作*/
             DataTable SourceTable = DAllotHandle.GetAutoTable(TableCount, LocalUser.AdminGuid,ref SourceRowsCount);
+            /*
+             * 任务量大于2000时，开启多线程
+             * 最大线程开销量：4
+             */
+            int MaxThread = 4;
+            int NeedNewThread = SourceRowsCount / 2000;
+            if (NeedNewThread > 1)
+            {
+                //循环创建任务线程
+                for (int t = 0; t < MaxThread; t++)
+                {
+
+                }
+
+
+            }
+
+
+
             //当数据剩余量小于需要的数据量时
             /*
              * 处理逻辑？
