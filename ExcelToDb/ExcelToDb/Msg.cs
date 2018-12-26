@@ -16,14 +16,16 @@ namespace ExcelToDb
     public partial class Msg : Form
     {
         //private BackgroundWorker bWorker = new BackgroundWorker();
+        
         public Msg()
         {
             InitializeComponent();
-
+            
         }
 
         private void Msg_Load(object sender, EventArgs e)
         {
+            
         }
 
     }
