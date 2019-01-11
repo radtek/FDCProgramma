@@ -59,7 +59,8 @@ namespace BLL.Distribute
                 //循环创建任务线程
                 for (int t = 0; t < MaxThread; t++)
                 {
-
+                    Thread thread = new Thread(TaskRunHandle);
+                    thread.Start("参数");
                 }
 
 
@@ -134,6 +135,10 @@ namespace BLL.Distribute
             //手动分配就是重新设置一下最大任务量
             MaxTaskNum = InputTaskNum;
             AutoAllotHandle(EmployeeCount, UserGUID);
+        }
+        public void TaskRunHandle(object obj)
+        {
+
         }
     }
 }
