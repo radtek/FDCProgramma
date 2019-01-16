@@ -9,7 +9,7 @@ namespace BLL.Distribute
     /// <summary>
     /// 拆分DataTable帮助类
     /// </summary>
-    public class SplitDataTable
+    public static class SplitDataTable
     {
         /// <summary>
         /// DataTable分组
