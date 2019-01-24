@@ -70,7 +70,7 @@
             this.Tb_TotalNum.ReadOnly = true;
             this.Tb_TotalNum.Size = new System.Drawing.Size(100, 34);
             this.Tb_TotalNum.TabIndex = 1;
-            this.Tb_TotalNum.Text = "525";
+            this.Tb_TotalNum.Text = "0";
             // 
             // groupBox1
             // 

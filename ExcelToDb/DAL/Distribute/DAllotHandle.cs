@@ -30,13 +30,13 @@ namespace DAL.Distribute
         /// <returns></returns>
         public DataTable GetAutoTable(int NeedNum,string LoginGuid,ref int RowsCount)
         {
-            string SQL = string.Format(@"SELECT TOP({0}) CF_NickName AS Name,
+            string SQL = string.Format(@"SELECT TOP(@0) CF_NickName AS Name,
                                         CF_ID AS ID,
                                         CF_Tel AS Tel,
                                         CF_BelongOperator AS Company 
                                         FROM Tb_CustomInformation 
                                         WHERE CF_IsUsed = 0 AND 
-                                        CF_UserGuid = '{1}' 
+                                        CF_UserGuid = @1
                                         ORDER BY CF_CreateDate DESC;", NeedNum,LoginGuid);
             DataSet Result = operate.ExecuteQuery(SQL);
             if (Result.Tables.Count > 0)
