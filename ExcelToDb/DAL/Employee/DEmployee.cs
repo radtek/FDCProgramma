@@ -87,14 +87,7 @@ namespace DAL.Employee
                 sqlConnection.Open();
                 using (Database db = new PetaPoco.Database(sqlConnection))
                 {
-                    employees = db.SingleOrDefault<List<MEmployee>>(@"SELECT EmployeeGuid,
-                                EmployeeCode,
-                                EmployeeNickName,
-                                EmployeeSex,
-                                EmployeeTel,TelOperator
-                                FROM Tb_Employee
-                                 WHERE BelongToUser = '{0}' 
-                                AND EmployeeIsLocked = 0",LoginGuid);
+                    employees = db.Fetch<MEmployee>(@"SELECT EmployeeGuid,EmployeeCode,EmployeeNickName,EmployeeSex,EmployeeTel,TelOperator FROM Tb_Employee WHERE BelongToUser = @0 AND EmployeeIsLocked = 0",LoginGuid);
                 }
                 return employees;
             }

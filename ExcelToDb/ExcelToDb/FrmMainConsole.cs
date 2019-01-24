@@ -83,5 +83,11 @@ namespace ExcelToDb
             FrmOperationRecord frmOperationRecord = new FrmOperationRecord(SystemMsg);
             frmOperationRecord.ShowDialog();
         }
+
+        private void 自动均分任务ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAllot frmAllot = new FrmAllot(SystemMsg);
+            frmAllot.ShowDialog();
+        }
     }
 }

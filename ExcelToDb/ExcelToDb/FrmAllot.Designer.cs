@@ -65,7 +65,7 @@
             // Tb_TotalNum
             // 
             this.Tb_TotalNum.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tb_TotalNum.Location = new System.Drawing.Point(298, 21);
+            this.Tb_TotalNum.Location = new System.Drawing.Point(314, 21);
             this.Tb_TotalNum.Name = "Tb_TotalNum";
             this.Tb_TotalNum.ReadOnly = true;
             this.Tb_TotalNum.Size = new System.Drawing.Size(100, 34);
