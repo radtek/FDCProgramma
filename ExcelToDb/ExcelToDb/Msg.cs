@@ -15,7 +15,7 @@ namespace ExcelToDb
 {
     public partial class Msg : Form
     {
-        //private BackgroundWorker bWorker = new BackgroundWorker();
+        
         
         public Msg()
         {
@@ -25,7 +25,7 @@ namespace ExcelToDb
 
         private void Msg_Load(object sender, EventArgs e)
         {
-            
+            progressBar1.Style = ProgressBarStyle.Marquee;
         }
 
     }
